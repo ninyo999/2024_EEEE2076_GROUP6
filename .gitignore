@@ -15,6 +15,8 @@ CTestTestfile.cmake
 _deps
 *.cmake
 *.conan
+build/
+
 ### CMake Patch ###
 CMakeUserPresets.json
 
