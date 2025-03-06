@@ -1,15 +1,17 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
+#include "ModelPart.h"
+#include "ui_mainwindow.h"
+#include "optiondialog.h"
+
 #include <QMessageBox>
 #include <QFileDialog>
 #include <QString>
 #include <QModelIndex>
-#include "ModelPart.h"
-#include "ui_mainwindow.h"
-#include "optiondialog.h"
 #include <QMenu>
 #include <QAction>
 #include <QPoint>
+
 #include <vtkCylinderSource.h>
 #include <vtkPolyDataMapper.h>
 #include <vtkCamera.h>
@@ -25,13 +27,13 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
+	this->setStyleSheet("background-color: ;");
     // Connect button signal to slot
     connect(ui->pushButton, &QPushButton::clicked, this, &MainWindow::handleButton);
     connect(ui->treeView, &QTreeView::clicked, this, &MainWindow::handleTreeClicked);
     connect(ui->actionOpen_File, &QAction::triggered, this, &MainWindow::openFile);
     connect(ui->treeView, &QWidget::customContextMenuRequested, this, &MainWindow::showTreeContextMenu);
-
+	
     // Connect status bar signal to status bar slot
     connect(this, &MainWindow::statusUpdateMessage, ui->statusbar, &QStatusBar::showMessage);
 
@@ -86,9 +88,9 @@ MainWindow::MainWindow(QWidget *parent)
     // Create a root item
     ModelPart *rootItem = this->partList->getRootItem();
 
-    // Add 3 top-level items
-    for (int i = 0; i < 3; i++) {
-        QString name = QString("TopLevel %1").arg(i);
+   
+    
+        QString name = QString("TopLevel");
         QString visible("true");
 
         // Create child item
@@ -96,7 +98,7 @@ MainWindow::MainWindow(QWidget *parent)
         rootItem->appendChild(childItem);
 
      
-    }
+    
 	connect(ui->toggleTreeViewButton, &QPushButton::clicked, this, &MainWindow::toggleTreeView);
 }
 
@@ -295,3 +297,4 @@ void MainWindow::toggleTreeView() {
         ui->toggleTreeViewButton->setText("Hide Tree View");
     }
 }
+

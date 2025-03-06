@@ -38,14 +38,12 @@ public slots:
 signals:
     void statusUpdateMessage(const QString &message, int timeout);
 
-//private slots:
-    //void on_pushButton_2_clicked();
-
 private:
     Ui::MainWindow *ui;
     ModelPartList *partList;
 
     vtkSmartPointer<vtkRenderer> renderer;
     vtkSmartPointer<vtkGenericOpenGLRenderWindow> renderWindow;
+
 };
 #endif // MAINWINDOW_H

@@ -27,6 +27,7 @@ set(PROJECT_SOURCES
 	icons.qrc
 	optiondialog.cpp
 	optiondialog.h
+	
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
