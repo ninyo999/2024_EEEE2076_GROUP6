@@ -83,16 +83,16 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QPushButton" name="toggleTreeViewButton">
         <property name="text">
-         <string>Push</string>
+         <string>Hide Tree View</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="toggleTreeViewButton">
+       <widget class="QPushButton" name="toggleVRButton">
         <property name="text">
-         <string>Hide Tree View</string>
+         <string>Start VR</string>
         </property>
        </widget>
       </item>

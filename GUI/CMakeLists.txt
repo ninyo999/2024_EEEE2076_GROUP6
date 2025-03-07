@@ -27,6 +27,8 @@ set(PROJECT_SOURCES
 	icons.qrc
 	optiondialog.cpp
 	optiondialog.h
+	VRRenderThread.cpp
+	VRRenderThread.h
 	
 )
 

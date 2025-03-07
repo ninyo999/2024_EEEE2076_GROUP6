@@ -18,6 +18,7 @@
 #include <vtkPlaneSource.h>  // For floor (grid)
 #include <vtkLight.h>        // For light control
 
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -26,11 +27,13 @@ MainWindow::MainWindow(QWidget *parent)
     this->setStyleSheet("background-color: ;");
 
     // Connect button signal to slot
-    connect(ui->pushButton, &QPushButton::clicked, this, &MainWindow::handleButton);
+
     connect(ui->treeView, &QTreeView::clicked, this, &MainWindow::handleTreeClicked);
     connect(ui->actionOpen_File, &QAction::triggered, this, &MainWindow::openFile);
     connect(ui->treeView, &QWidget::customContextMenuRequested, this, &MainWindow::showTreeContextMenu);
     connect(ui->horizontalSlider, &QSlider::valueChanged, this, &MainWindow::onLightIntensityChanged);  // Light intensity slider
+	connect(ui->toggleTreeViewButton, &QPushButton::clicked, this, &MainWindow::toggleTreeView);
+	connect(ui->toggleVRButton, &QPushButton::clicked, this, &MainWindow::toggleVR);
 
     // Connect status bar signal to status bar slot
     connect(this, &MainWindow::statusUpdateMessage, ui->statusbar, &QStatusBar::showMessage);
@@ -118,21 +121,12 @@ MainWindow::MainWindow(QWidget *parent)
     ModelPart* moduleItem = new ModelPart({ name, visible });
     rootItem->appendChild(moduleItem);
 
-    connect(ui->toggleTreeViewButton, &QPushButton::clicked, this, &MainWindow::toggleTreeView);
+    
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
-}
-
-void MainWindow::handleButton() {
-    QMessageBox msgBox;
-    msgBox.setText("Add button was clicked");
-    msgBox.exec();
-
-    // Emit signal to update status bar
-    emit statusUpdateMessage(QString("Add button was clicked"), 0);
 }
 
 void MainWindow::handleTreeClicked() {
@@ -319,4 +313,28 @@ void MainWindow::onDeleteRequested() {
 
     // Refresh the VTK renderer
     updateRender();
+}
+
+
+void MainWindow::toggleVR() {
+    if (vrThread && vrThread->isRunning()) {
+        // Stop the VR thread
+        vrThread->stop();
+        ui->toggleVRButton->setText("Start VR");
+    } else {
+        // Start the VR thread
+        vrThread = new VRRenderThread(this);
+
+        // Add actors for VR rendering
+        for (ModelPart *part : partList->getAllParts()) {
+            vtkSmartPointer<vtkActor> vrActor = part->getNewActor();
+            if (vrActor) {
+                vrThread->addActor(vrActor);
+            }
+        }
+
+        // Start the VR thread
+        vrThread->start();
+        ui->toggleVRButton->setText("Stop VR");
+    }
 }
