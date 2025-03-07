@@ -24,9 +24,12 @@ public:
     void setModelPart(ModelPart *part);
     void accept() override;
 
+signals:
+    void deleteRequested();
+
 private slots:
     void updateColorPreview();
-
+	void onDeleteButtonClicked();  // Slot for delete button click
 private:
     Ui::OptionDialog *ui;
     ModelPart *currentPart;

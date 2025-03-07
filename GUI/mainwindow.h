@@ -45,5 +45,8 @@ private:
     vtkSmartPointer<vtkRenderer> renderer;
     vtkSmartPointer<vtkGenericOpenGLRenderWindow> renderWindow;
 
+private slots:
+    void onDeleteRequested();  // Slot to handle delete requests
+
 };
 #endif // MAINWINDOW_H

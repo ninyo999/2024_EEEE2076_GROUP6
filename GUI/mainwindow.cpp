@@ -189,6 +189,8 @@ void MainWindow::on_actionItemOptions_triggered() {
     OptionDialog dialog(this);
     dialog.setModelPart(selectedPart);  // Pass the data into dialog
 
+    connect(&dialog, &OptionDialog::deleteRequested, this, &MainWindow::onDeleteRequested);	// Connect the delete signal to the slot
+
     if (dialog.exec() == QDialog::Accepted) {
         // Get the updated data from the dialog
         QString name;
@@ -283,3 +285,13 @@ void MainWindow::toggleTreeView() {
     }
 }
 
+void MainWindow::onDeleteRequested() {
+    QModelIndex index = ui->treeView->currentIndex();
+    if (!index.isValid()) return;
+
+	ModelPartList *model = static_cast<ModelPartList*>(ui->treeView->model());
+    model->removeRow(index.row(), index.parent());  // Remove the row from the model
+
+    // Refresh the VTK renderer
+    updateRender();
+}

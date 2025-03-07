@@ -8,11 +8,11 @@ OptionDialog::OptionDialog(QWidget *parent)
 {
     ui->setupUi(this);
 	
-
-
     connect(ui->spinBoxR, QOverload<int>::of(&QSpinBox::valueChanged), this, &OptionDialog::updateColorPreview);
     connect(ui->spinBoxG, QOverload<int>::of(&QSpinBox::valueChanged), this, &OptionDialog::updateColorPreview);
     connect(ui->spinBoxB, QOverload<int>::of(&QSpinBox::valueChanged), this, &OptionDialog::updateColorPreview);
+
+	connect(ui->deleteButton, &QPushButton::clicked, this, &OptionDialog::onDeleteButtonClicked);
 }
 
 OptionDialog::~OptionDialog() {
@@ -66,4 +66,9 @@ void OptionDialog::getModelPartData(QString &name, int &r, int &g, int &b, bool 
     g = ui->spinBoxG->value();
     b = ui->spinBoxB->value();
     visible = ui->checkBox->isChecked();
+}
+
+void OptionDialog::onDeleteButtonClicked() {
+    emit deleteRequested();  // Emit the delete signal
+    this->reject();  // Close the dialog
 }
