@@ -200,21 +200,6 @@ void MainWindow::on_actionItemOptions_triggered() {
         selectedPart->setName(name);
         selectedPart->setColor(QColor(r, g, b));
         selectedPart->setVisible(visible);
-        //selectedPart->set(1, visible ? "true" : "false"); // Store visibility text
-
-        // Refresh the UI
-        //QModelIndex parentIndex = index.parent();
-        //ui->treeView->model()->dataChanged(index, index);
-        //ui->treeView->model()->dataChanged(index, index, {Qt::DisplayRole, Qt::BackgroundRole});
-        //ui->treeView->update();
-
-        // **FORCE UI REFRESH**
-        //QAbstractItemModel *model = ui->treeView->model();
-        //model->dataChanged(index, index, {Qt::DisplayRole, Qt::ForegroundRole});
-
-        //ui->treeView->model()->dataChanged(index, index, {Qt::DisplayRole, Qt::BackgroundRole});
-
-        qDebug() << "Updating tree view for item:" << name << "Color:" << r << g << b;
 
         QAbstractItemModel *model = ui->treeView->model();
         emit model->dataChanged(index, index, {Qt::DisplayRole, Qt::BackgroundRole});
@@ -223,7 +208,7 @@ void MainWindow::on_actionItemOptions_triggered() {
         ui->treeView->update();
         ui->treeView->viewport()->update();
 
-
+		updateRender();
         //emit statusUpdateMessage("Item Options Selected", 0);
 
         //QModelIndex index = ui->treeView->currentIndex();
@@ -268,7 +253,7 @@ void MainWindow::updateRenderFromTree(const QModelIndex& index) {
 
         // Retrieve the actor from the selected part and add it to the renderer
         vtkSmartPointer<vtkActor> actor = selectedPart->getActor();
-        if (actor) {
+        if (actor && selectedPart->visible()) {
             renderer->AddActor(actor);
         }
 

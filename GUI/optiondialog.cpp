@@ -7,6 +7,8 @@ OptionDialog::OptionDialog(QWidget *parent)
     , currentPart(nullptr)
 {
     ui->setupUi(this);
+	
+
 
     connect(ui->spinBoxR, QOverload<int>::of(&QSpinBox::valueChanged), this, &OptionDialog::updateColorPreview);
     connect(ui->spinBoxG, QOverload<int>::of(&QSpinBox::valueChanged), this, &OptionDialog::updateColorPreview);
