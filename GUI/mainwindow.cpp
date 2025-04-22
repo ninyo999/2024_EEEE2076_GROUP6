@@ -2,7 +2,7 @@
 #include "./ui_mainwindow.h"
 #include "ModelPart.h"
 #include "ui_mainwindow.h"
-#include "optiondialog.h"  // Assuming OptionDialog is used
+#include "optiondialog.h" 
 #include <QMessageBox>
 #include <QFileDialog>
 #include <QString>
@@ -33,7 +33,6 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->treeView, &QWidget::customContextMenuRequested, this, &MainWindow::showTreeContextMenu);
     connect(ui->horizontalSlider, &QSlider::valueChanged, this, &MainWindow::onLightIntensityChanged);  // Light intensity slider
 	connect(ui->toggleTreeViewButton, &QPushButton::clicked, this, &MainWindow::toggleTreeView);
-	connect(ui->toggleVRButton, &QPushButton::clicked, this, &MainWindow::toggleVR);
 
     // Connect status bar signal to status bar slot
     connect(this, &MainWindow::statusUpdateMessage, ui->statusbar, &QStatusBar::showMessage);
@@ -218,27 +217,27 @@ void MainWindow::on_actionItemOptions_triggered() {
     if (!selectedPart) return;
 
     OptionDialog dialog(this);
-    dialog.setModelPart(selectedPart);  // Pass the data into dialog
-
-    connect(&dialog, &OptionDialog::deleteRequested, this, &MainWindow::onDeleteRequested);  // Connect the delete signal to the slot
+    dialog.setModelPart(selectedPart);
+    connect(&dialog, &OptionDialog::deleteRequested, this, &MainWindow::onDeleteRequested);
 
     if (dialog.exec() == QDialog::Accepted) {
-        // Get the updated data from the dialog
         QString name;
-        int r, g, b;
+        QColor color;
         bool visible;
-        dialog.getModelPartData(name, r, g, b, visible);
+        dialog.getModelPartData(name, color, visible);
 
-        // Update the tree item
         selectedPart->setName(name);
-        selectedPart->setColor(QColor(r, g, b));
+        selectedPart->setColor(color);
         selectedPart->setVisible(visible);
+
+        // Update the VTK actor color
+        vtkSmartPointer<vtkActor> actor = selectedPart->getActor();
+        if (actor) {
+            actor->GetProperty()->SetColor(color.redF(), color.greenF(), color.blueF());
+        }
 
         QAbstractItemModel *model = ui->treeView->model();
         emit model->dataChanged(index, index, {Qt::DisplayRole, Qt::BackgroundRole});
-
-        ui->treeView->update();
-        ui->treeView->viewport()->update();
 
         updateRender();
     }
@@ -316,25 +315,5 @@ void MainWindow::onDeleteRequested() {
 }
 
 
-void MainWindow::toggleVR() {
-    if (vrThread && vrThread->isRunning()) {
-        // Stop the VR thread
-        vrThread->stop();
-        ui->toggleVRButton->setText("Start VR");
-    } else {
-        // Start the VR thread
-        vrThread = new VRRenderThread(this);
 
-        // Add actors for VR rendering
-        for (ModelPart *part : partList->getAllParts()) {
-            vtkSmartPointer<vtkActor> vrActor = part->getNewActor();
-            if (vrActor) {
-                vrThread->addActor(vrActor);
-            }
-        }
 
-        // Start the VR thread
-        vrThread->start();
-        ui->toggleVRButton->setText("Stop VR");
-    }
-}

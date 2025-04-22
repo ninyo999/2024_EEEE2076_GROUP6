@@ -90,13 +90,6 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="toggleVRButton">
-        <property name="text">
-         <string>Start VR</string>
-        </property>
-       </widget>
-      </item>
-      <item>
        <spacer name="horizontalSpacer">
         <property name="orientation">
          <enum>Qt::Orientation::Horizontal</enum>

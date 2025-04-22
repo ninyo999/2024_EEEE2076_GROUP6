@@ -1,5 +1,6 @@
 #include "optiondialog.h"
 #include "ui_optiondialog.h"
+#include <QColorDialog>
 
 OptionDialog::OptionDialog(QWidget *parent)
     : QDialog(parent)
@@ -8,10 +9,8 @@ OptionDialog::OptionDialog(QWidget *parent)
 {
     ui->setupUi(this);
 	
-    connect(ui->spinBoxR, QOverload<int>::of(&QSpinBox::valueChanged), this, &OptionDialog::updateColorPreview);
-    connect(ui->spinBoxG, QOverload<int>::of(&QSpinBox::valueChanged), this, &OptionDialog::updateColorPreview);
-    connect(ui->spinBoxB, QOverload<int>::of(&QSpinBox::valueChanged), this, &OptionDialog::updateColorPreview);
 
+	connect(ui->colorButton, &QPushButton::clicked, this, &OptionDialog::onColorButtonClicked);
 	connect(ui->deleteButton, &QPushButton::clicked, this, &OptionDialog::onDeleteButtonClicked);
 }
 
@@ -25,50 +24,50 @@ void OptionDialog::setModelPart(ModelPart *part) {
     currentPart = part;
     ui->lineEdit->setText(part->data(0).toString());
 
-    QColor color = part->color();
-    ui->spinBoxR->setValue(color.red());
-    ui->spinBoxG->setValue(color.green());
-    ui->spinBoxB->setValue(color.blue());
+    currentColor = part->color();
+	updateColorButton();
 
     ui->checkBox->setChecked(part->visible());
 
-    updateColorPreview();
-}
-
-void OptionDialog::updateColorPreview() {
-    int r = ui->spinBoxR->value();
-    int g = ui->spinBoxG->value();
-    int b = ui->spinBoxB->value();
-
-    QString style = QString("background-color: rgb(%1, %2, %3);").arg(r).arg(g).arg(b);
-    ui->colorPreviewLabel->setStyleSheet(style);
 }
 
 void OptionDialog::accept() {
     if (currentPart) {
         QString name = ui->lineEdit->text();
-        int r = ui->spinBoxR->value();
-        int g = ui->spinBoxG->value();
-        int b = ui->spinBoxB->value();
         bool visible = ui->checkBox->isChecked();
 
         currentPart->setName(name);
-        currentPart->setColor(QColor(r, g, b));
+        currentPart->setColor(currentColor);
         currentPart->setVisible(visible);
     }
 
     QDialog::accept();
 }
 
-void OptionDialog::getModelPartData(QString &name, int &r, int &g, int &b, bool &visible) const {
+void OptionDialog::getModelPartData(QString &name, QColor &color, bool &visible) const {
     name = ui->lineEdit->text();
-    r = ui->spinBoxR->value();
-    g = ui->spinBoxG->value();
-    b = ui->spinBoxB->value();
+    color = currentColor;
     visible = ui->checkBox->isChecked();
 }
 
 void OptionDialog::onDeleteButtonClicked() {
-    emit deleteRequested();  // Emit the delete signal
-    this->reject();  // Close the dialog
+    emit deleteRequested();
+    this->reject();
 }
+
+
+void OptionDialog::updateColorButton() {
+    QString style = QString("background-color: %1; border: 1px solid black;").arg(currentColor.name());
+    ui->colorButton->setStyleSheet(style);
+}
+
+void OptionDialog::onColorButtonClicked() {
+    QColor newColor = QColorDialog::getColor(currentColor, this, "Select Color");
+    if (newColor.isValid()) {
+        currentColor = newColor;
+        updateColorButton();
+    }
+}
+
+
+

@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Part Properties</string>
   </property>
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
@@ -32,67 +32,62 @@
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>80</x>
-     <y>100</y>
-     <width>240</width>
-     <height>57</height>
+     <x>20</x>
+     <y>20</y>
+     <width>351</width>
+     <height>191</height>
     </rect>
    </property>
-   <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="1" colspan="3">
-     <widget class="QLineEdit" name="lineEdit"/>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Name:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="lineEdit"/>
+      </item>
+     </layout>
     </item>
-    <item row="1" column="0">
-     <widget class="QSpinBox" name="spinBoxR">
-      <property name="maximum">
-       <number>255</number>
-      </property>
-     </widget>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>Color:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="colorButton">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>50</width>
+          <height>30</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </item>
-    <item row="1" column="1">
-     <widget class="QSpinBox" name="spinBoxG">
-      <property name="maximum">
-       <number>255</number>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="2">
-     <widget class="QSpinBox" name="spinBoxB">
-      <property name="maximum">
-       <number>255</number>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="3">
+    <item>
      <widget class="QCheckBox" name="checkBox">
       <property name="text">
        <string>Visible</string>
       </property>
      </widget>
     </item>
-    <item row="0" column="0">
-     <widget class="QLabel" name="colorPreviewLabel">
-      <property name="text">
-       <string>TextLabel</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="verticalLayoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>250</x>
-     <y>160</y>
-     <width>77</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <widget class="QPushButton" name="deleteButton">
       <property name="text">
-       <string>Delete</string>
+       <string>Delete Part</string>
       </property>
      </widget>
     </item>

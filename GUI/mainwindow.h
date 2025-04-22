@@ -5,7 +5,6 @@
 #include <QTreeView>
 #include "ModelPartList.h"
 #include "ModelPart.h"
-#include "VRRenderThread.h"
 #include <vtkSmartPointer.h>
 #include <vtkRenderer.h>
 #include <vtkGenericOpenGLRenderWindow.h>
@@ -35,8 +34,7 @@ public slots:
     void on_actionItemOptions_triggered();
     void updateRender();
     void toggleTreeView();  
-	void updateRenderFromTree(const QModelIndex& index);
-    void toggleVR();  
+	void updateRenderFromTree(const QModelIndex& index); 
     void onLightIntensityChanged(int value);  
 
 
@@ -60,7 +58,7 @@ private:
 
     // Light (from your friend's code)
     vtkSmartPointer<vtkLight> light;
-	VRRenderThread *vrThread;  
+	//VRRenderThread *vrThread;  
 };
 
 #endif // MAINWINDOW_H

@@ -2,6 +2,7 @@
 #define OPTIONDIALOG_H
 
 #include <QDialog>
+#include <QColor>
 #include "ModelPart.h"
 
 namespace Ui {
@@ -17,22 +18,22 @@ public:
     ~OptionDialog();
 
     // Functions to set/get data from the dialog
-    void setModelPartData(const QString &name, int r, int g, int b, bool visible);
-    ModelPart* getModelPart();
 
-    void getModelPartData(QString &name, int &r, int &g, int &b, bool &visible) const;
+    void getModelPartData(QString &name, QColor &color, bool &visible) const;
     void setModelPart(ModelPart *part);
     void accept() override;
+	void updateColorButton();
 
 signals:
     void deleteRequested();
 
 private slots:
-    void updateColorPreview();
+    void onColorButtonClicked();
 	void onDeleteButtonClicked();  // Slot for delete button click
 private:
     Ui::OptionDialog *ui;
     ModelPart *currentPart;
+	QColor currentColor;
 };
 
 #endif // OPTIONDIALOG_H
