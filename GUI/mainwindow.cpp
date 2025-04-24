@@ -11,6 +11,9 @@
 #include <QMenu>
 #include <QAction>
 #include <QPoint>
+#include <QJsonObject>
+#include <QJsonArray>
+#include <QJsonDocument>
 #include <vtkCylinderSource.h>
 #include <vtkPolyDataMapper.h>
 #include <vtkCamera.h>
@@ -43,6 +46,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->horizontalSlider, &QSlider::valueChanged, this, &MainWindow::onLightIntensityChanged);  // Light intensity slider
 	connect(ui->toggleTreeViewButton, &QPushButton::clicked, this, &MainWindow::toggleTreeView);
 	connect(ui->backgroundButton, &QPushButton::clicked, this, &MainWindow::onBackgroundButtonClicked);
+	connect(ui->actionSave_File, &QAction::triggered, this, &MainWindow::onSaveFile);
     // Connect status bar signal to status bar slot
     connect(this, &MainWindow::statusUpdateMessage, ui->statusbar, &QStatusBar::showMessage);
 
@@ -449,3 +453,64 @@ void MainWindow::setGarageImageBackground()
 }
 
 
+void MainWindow::onSaveFile()
+{
+    // Get save file location
+    QString fileName = QFileDialog::getSaveFileName(this,
+        tr("Save Model Settings"), "",
+        tr("JSON Files (*.json);;All Files (*)"));
+
+    if (fileName.isEmpty())
+        return;
+
+    // Prepare JSON structure
+    QJsonObject rootObject;
+    
+    // 1. Save background settings
+    QJsonObject background;
+    if (backgroundActor) {
+        background["type"] = "image";
+        //background["path"] = currentBackgroundPath; // Store your member variable holding the path
+    } else {
+        background["type"] = "color";
+        double* bgColor = renderer->GetBackground();
+        background["color"] = QString("%1,%2,%3")
+            .arg(bgColor[0])
+            .arg(bgColor[1])
+            .arg(bgColor[2]);
+    }
+    rootObject["background"] = background;
+
+    // 2. Save model parts
+    QJsonArray partsArray;
+    QList<ModelPart*> parts = partList->getAllParts();
+    
+    for (ModelPart* part : parts) {
+        QJsonObject partObj;
+        partObj["name"] = part->data(0).toString();
+        
+        QColor color = part->color();
+        partObj["color"] = QString("%1,%2,%3")
+            .arg(color.red())
+            .arg(color.green())
+            .arg(color.blue());
+            
+        partObj["visible"] = part->visible();
+        partObj["filePath"] = part->getFilePath();
+        
+        partsArray.append(partObj);
+    }
+    rootObject["parts"] = partsArray;
+
+    // 3. Save to file
+    QFile saveFile(fileName);
+    if (!saveFile.open(QIODevice::WriteOnly)) {
+        QMessageBox::warning(this, "Error", "Could not open file for writing");
+        return;
+    }
+
+    saveFile.write(QJsonDocument(rootObject).toJson());
+    saveFile.close();
+    
+    statusUpdateMessage("Settings saved successfully", 3000);
+}
