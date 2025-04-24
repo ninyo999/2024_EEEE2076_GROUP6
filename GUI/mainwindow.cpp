@@ -3,6 +3,7 @@
 #include "ModelPart.h"
 #include "ui_mainwindow.h"
 #include "optiondialog.h" 
+#include "backgrounddialog.h"
 #include <QMessageBox>
 #include <QFileDialog>
 #include <QString>
@@ -17,7 +18,15 @@
 #include <vtkMapper.h>
 #include <vtkPlaneSource.h>  // For floor (grid)
 #include <vtkLight.h>        // For light control
-
+#include <vtkPolyDataMapper2D.h>
+#include <vtkProperty2D.h>
+#include <vtkTexturedActor2D.h>
+#include <vtkImageReader2Factory.h>
+#include <vtkImageReader2.h>
+#include <vtkTexture.h>
+#include <vtkPlaneSource.h>
+#include <vtkActor2D.h>
+#include <vtkSTLReader.h>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -33,7 +42,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->treeView, &QWidget::customContextMenuRequested, this, &MainWindow::showTreeContextMenu);
     connect(ui->horizontalSlider, &QSlider::valueChanged, this, &MainWindow::onLightIntensityChanged);  // Light intensity slider
 	connect(ui->toggleTreeViewButton, &QPushButton::clicked, this, &MainWindow::toggleTreeView);
-
+	connect(ui->backgroundButton, &QPushButton::clicked, this, &MainWindow::onBackgroundButtonClicked);
     // Connect status bar signal to status bar slot
     connect(this, &MainWindow::statusUpdateMessage, ui->statusbar, &QStatusBar::showMessage);
 
@@ -314,6 +323,129 @@ void MainWindow::onDeleteRequested() {
     updateRender();
 }
 
+void MainWindow::onBackgroundButtonClicked()
+{
+    BackgroundDialog dialog(this);
+    if (dialog.exec() == QDialog::Accepted) {
+        if (dialog.getSelectedType() == BackgroundDialog::SolidColor) {
+            setSolidColorBackground(dialog.getSelectedColor());
+        } else {
+            setCustomImageBackground(dialog.getImageFilePath());
+        }
+    }
+}
+void MainWindow::setCustomImageBackground(const QString& imagePath)
+{
+    // Remove existing background
+    if (backgroundActor) {
+        renderer->RemoveActor2D(backgroundActor);
+        backgroundActor = nullptr;
+    }
 
+    if (imagePath.isEmpty()) {
+        setSolidColorBackground(Qt::gray);
+        return;
+    }
+
+    // Load the image
+    vtkSmartPointer<vtkImageReader2Factory> readerFactory = vtkSmartPointer<vtkImageReader2Factory>::New();
+    vtkSmartPointer<vtkImageReader2> imageReader = readerFactory->CreateImageReader2(imagePath.toStdString().c_str());
+    
+    if (imageReader) {
+        imageReader->SetFileName(imagePath.toStdString().c_str());
+        imageReader->Update();
+
+        // Create texture
+        vtkSmartPointer<vtkTexture> texture = vtkSmartPointer<vtkTexture>::New();
+        texture->SetInputConnection(imageReader->GetOutputPort());
+
+        // Create plane
+        vtkSmartPointer<vtkPlaneSource> plane = vtkSmartPointer<vtkPlaneSource>::New();
+        plane->SetOrigin(0, 0, 0);  // Simplified coordinates for 2D
+        plane->SetPoint1(1, 0, 0);
+        plane->SetPoint2(0, 1, 0);
+
+        // Create 2D mapper
+        vtkSmartPointer<vtkPolyDataMapper2D> mapper2D = vtkSmartPointer<vtkPolyDataMapper2D>::New();
+        mapper2D->SetInputConnection(plane->GetOutputPort());
+
+        // Create 2D actor (single consistent creation)
+        backgroundActor = vtkSmartPointer<vtkTexturedActor2D>::New();
+        backgroundActor->SetMapper(mapper2D);
+        backgroundActor->SetTexture(texture);
+
+        // Position the actor (2D coordinates only)
+        backgroundActor->SetPosition(0, 0);
+        
+        // Set display properties
+        backgroundActor->GetProperty()->SetOpacity(1.0);
+        
+        // Add to renderer
+        renderer->AddActor2D(backgroundActor);
+        renderer->ResetCamera();
+        renderWindow->Render();
+    } else {
+        setSolidColorBackground(Qt::gray);
+    }
+}
+
+
+void MainWindow::setSolidColorBackground(const QColor& color)
+{
+    // Remove any existing background actor
+    if (backgroundActor) {
+        renderer->RemoveActor(backgroundActor);
+        backgroundActor = nullptr;
+    }
+    
+    // Set the background color
+    renderer->SetBackground(color.redF(), color.greenF(), color.blueF());
+    renderer->Render();
+}
+
+void MainWindow::setGarageImageBackground()
+{
+    // First remove any existing background
+    if (backgroundActor) {
+        renderer->RemoveActor(backgroundActor);
+        backgroundActor = nullptr;
+    }
+    
+    // Load the garage image 
+    QString imagePath = "C:/Users/Creative/2024_EEEE2076_GROUP6/GUI/icons/garageBackground.jpg"; 
+    
+    vtkSmartPointer<vtkImageReader2Factory> readerFactory = vtkSmartPointer<vtkImageReader2Factory>::New();
+    vtkSmartPointer<vtkImageReader2> imageReader = readerFactory->CreateImageReader2(imagePath.toStdString().c_str());
+    
+    if (imageReader) {
+        imageReader->SetFileName(imagePath.toStdString().c_str());
+        imageReader->Update();
+        
+        // Create texture
+        vtkSmartPointer<vtkTexture> texture = vtkSmartPointer<vtkTexture>::New();
+        texture->SetInputConnection(imageReader->GetOutputPort());
+        
+        // Create a plane for the background
+        vtkSmartPointer<vtkPlaneSource> plane = vtkSmartPointer<vtkPlaneSource>::New();
+        plane->SetOrigin(0, 0, 0);
+        plane->SetPoint1(1, 0, 0);
+        plane->SetPoint2(0, 1, 0);
+        
+        // Create actor for the background
+        backgroundActor = vtkSmartPointer<vtkTexturedActor2D>::New();
+        vtkSmartPointer<vtkPolyDataMapper2D> mapper = vtkSmartPointer<vtkPolyDataMapper2D>::New();
+        mapper->SetInputConnection(plane->GetOutputPort());
+        backgroundActor->SetMapper(mapper);
+        backgroundActor->SetTexture(texture);
+        
+        // Add to renderer (behind everything else)
+        renderer->AddActor(backgroundActor);
+        backgroundActor->GetProperty()->SetDisplayLocationToBackground();
+        
+        renderer->Render();
+    } else {
+        QMessageBox::warning(this, "Error", "Could not load garage image. Please check the file path.");
+    }
+}
 
 

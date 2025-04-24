@@ -5,11 +5,20 @@
 #include <QTreeView>
 #include "ModelPartList.h"
 #include "ModelPart.h"
+#include <QVTKOpenGLNativeWidget.h>
 #include <vtkSmartPointer.h>
 #include <vtkRenderer.h>
 #include <vtkGenericOpenGLRenderWindow.h>
 #include <vtkActor.h>  // For gridActor
 #include <vtkLight.h>  // For light
+//For BackgroundDialog
+#include "backgrounddialog.h"
+#include <vtkImageReader2Factory.h>
+#include <vtkImageReader2.h>
+#include <vtkImageData.h>
+#include <vtkTexture.h>
+#include <vtkPlaneSource.h>
+#include <vtkTexturedActor2D.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -43,8 +52,8 @@ signals:
 
 private slots:
     void onDeleteRequested();  
-
-    
+	void onBackgroundButtonClicked();
+    void setCustomImageBackground(const QString& imagePath);
 
 private:
     Ui::MainWindow *ui;
@@ -59,6 +68,12 @@ private:
     // Light (from your friend's code)
     vtkSmartPointer<vtkLight> light;
 	//VRRenderThread *vrThread;  
+	
+	//For BackgroundDialog
+	void setSolidColorBackground(const QColor& color);
+    void setGarageImageBackground();
+    vtkSmartPointer<vtkTexturedActor2D> backgroundActor;
+	
 };
 
 #endif // MAINWINDOW_H

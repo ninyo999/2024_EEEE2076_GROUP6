@@ -12,8 +12,17 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets OpenGL)
 find_package( VTK REQUIRED)
+find_package(VTK REQUIRED COMPONENTS
+    RenderingCore
+    RenderingOpenGL2
+    IOImage
+    IOGeometry
+    InteractionStyle
+    FiltersSources
+    ViewsQt
+)
 
 set(PROJECT_SOURCES
         main.cpp
@@ -27,6 +36,8 @@ set(PROJECT_SOURCES
 	icons.qrc
 	optiondialog.cpp
 	optiondialog.h
+	backgrounddialog.cpp
+	backgrounddialog.h
 
 	
 )
@@ -55,7 +66,7 @@ else()
     endif()
 endif()
 
-target_link_libraries(GROUP6_GUI PRIVATE Qt${QT_VERSION_MAJOR}::Widgets ${VTK_LIBRARIES} )
+target_link_libraries(GROUP6_GUI PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::OpenGL ${VTK_LIBRARIES} )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an
