@@ -3,9 +3,6 @@
 
 #include <QMainWindow>
 #include <QTreeView>
-#include <QJsonObject>
-#include <QJsonArray>
-#include <QJsonDocument>
 #include <QFile>
 #include <QFileDialog>
 
@@ -51,7 +48,6 @@ public slots:
     void toggleTreeView();  
 	void updateRenderFromTree(const QModelIndex& index); 
     void onLightIntensityChanged(int value);  
-	void onSaveFile();
 
 signals:
     void statusUpdateMessage(const QString &message, int timeout);
@@ -79,6 +75,7 @@ private:
 	void setSolidColorBackground(const QColor& color);
     void setGarageImageBackground();
     vtkSmartPointer<vtkTexturedActor2D> backgroundActor;
+
 	
 };
 
