@@ -156,13 +156,3 @@ bool ModelPartList::removeRow(int row, const QModelIndex &parent) {
     endRemoveRows();
     return true;
 }
-
-QList<ModelPart*> ModelPartList::getAllParts() const {
-    QList<ModelPart*> parts;
-    if (rootItem) {
-        for (int i = 0; i < rootItem->childCount(); ++i) {
-            parts.append(rootItem->child(i));
-        }
-    }
-    return parts;
-}
