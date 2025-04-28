@@ -111,6 +111,20 @@
       </item>
      </layout>
     </item>
+    <item>
+     <widget class="QCheckBox" name="clipFilterCheckBox">
+      <property name="text">
+       <string>clip filter</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QCheckBox" name="shrinkFilterCheckBox">
+      <property name="text">
+       <string>shrink filter</string>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -119,7 +133,7 @@
      <x>0</x>
      <y>0</y>
      <width>829</width>
-     <height>22</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
