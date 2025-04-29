@@ -4,6 +4,9 @@
 #include "ui_mainwindow.h"
 #include "optiondialog.h" 
 #include "backgrounddialog.h"
+#include "VRRenderThread.h"
+#include <functional>  
+
 #include <QMessageBox>
 #include <QFileDialog>
 #include <QString>
@@ -40,7 +43,7 @@ MainWindow::MainWindow(QWidget* parent)
 {
     ui->setupUi(this);
     this->setStyleSheet("background-color: ;");
-	mainRenderer = vtkSmartPointer<vtkRenderer>::New();
+	vrThread = nullptr;
     // Connect signals to slots
     connect(ui->treeView, &QTreeView::clicked, this, &MainWindow::handleTreeClicked);
     connect(ui->actionOpen_File, &QAction::triggered, this, &MainWindow::openFile);
@@ -50,8 +53,7 @@ MainWindow::MainWindow(QWidget* parent)
     connect(ui->backgroundButton, &QPushButton::clicked, this, &MainWindow::onBackgroundButtonClicked);
     connect(ui->clipFilterCheckBox, &QCheckBox::stateChanged, this, &MainWindow::onClipFilterCheckboxChanged);
     connect(ui->shrinkFilterCheckBox, &QCheckBox::stateChanged, this, &MainWindow::onShrinkFilterCheckboxChanged);
-	connect(ui->startVRButton, &QPushButton::clicked, this, &MainWindow::onStartVRClicked);
-
+	connect(ui->startVRButton, &QPushButton::clicked, this, &MainWindow::startVR);
     // Connect status bar signal
     connect(this, &MainWindow::statusUpdateMessage, ui->statusbar, &QStatusBar::showMessage);
 
@@ -135,18 +137,10 @@ MainWindow::MainWindow(QWidget* parent)
     // Create the top-level item
     ModelPart* moduleItem = new ModelPart({ name, visible });
     rootItem->appendChild(moduleItem);
-
 }
 
 MainWindow::~MainWindow()
 {
-
-    if (vrThread)
-    {
-        vrThread->stop();
-        vrThread->wait();
-        delete vrThread;
-    }
     delete ui;
 }
 
@@ -408,12 +402,30 @@ void MainWindow::onShrinkFilterCheckboxChanged(int state) {
     renderWindow->Render();
 }
 
-void MainWindow::onStartVRClicked()
+void MainWindow::startVR()
 {
-    if (!vrThread)
-    {
-        vrThread = new VRRenderThread(this);
-        vrThread->setSceneData(renderer);
-        vrThread->start();
-    }
+    // don’t restart if already running
+    if (vrThread && vrThread->isRunning()) return;
+
+    // create and own it
+    vrThread = new VRRenderThread(this);
+
+    // recursively walk parts
+    std::function<void(ModelPart*)> walk = [&](ModelPart* part){
+        // ask for brand-new mapper+actor
+        vtkSmartPointer<vtkActor> newA = part->getNewActor();
+        // copy over all properties (colour, opacity, etc)
+        newA->SetProperty(part->getActor()->GetProperty());
+        // queue it for the VR thread
+        vrThread->addActorOffline(newA);
+        // children
+        for(int i=0; i<part->childCount(); ++i)
+            walk(part->child(i));
+    };
+
+    // start from root
+    walk(partList->getRootItem());
+
+    // and off we go…
+    vrThread->start();
 }

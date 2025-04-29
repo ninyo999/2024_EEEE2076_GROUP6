@@ -25,6 +25,7 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS
 find_package(VTK 9.4 REQUIRED COMPONENTS
     CommonCore
     CommonDataModel
+    CommonColor  
     FiltersCore
     FiltersGeneral
     FiltersGeometry  # Required for vtkGeometryFilter
@@ -36,7 +37,6 @@ find_package(VTK 9.4 REQUIRED COMPONENTS
     FiltersSources
     ViewsQt
     RenderingOpenVR
-
 )
 
 message(STATUS "Using Qt version: ${Qt${QT_VERSION_MAJOR}_VERSION}")
@@ -59,8 +59,8 @@ set(PROJECT_SOURCES
     backgrounddialog.h
     backgrounddialog.ui
     icons.qrc
-    vrrenderthread.h
     vrrenderthread.cpp
+    vrrenderthread.h
 )
 
 # Create executable
@@ -97,6 +97,7 @@ target_link_libraries(GROUP6_GUI PRIVATE
     VTK::FiltersSources
     VTK::ViewsQt
     VTK::RenderingOpenVR
+    VTK::CommonColor
 )
 
 # Platform-specific settings
