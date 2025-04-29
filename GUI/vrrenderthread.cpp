@@ -30,34 +30,47 @@ void VRRenderThread::run()
 {
     running = true;
 
-    // Create OpenVR Renderer, RenderWindow, Interactor
-    vtkSmartPointer<vtkOpenVRRenderer> vrRenderer = vtkSmartPointer<vtkOpenVRRenderer>::New();
-    vtkSmartPointer<vtkOpenVRRenderWindow> vrRenderWindow = vtkSmartPointer<vtkOpenVRRenderWindow>::New();
-    vtkSmartPointer<vtkOpenVRRenderWindowInteractor> vrInteractor = vtkSmartPointer<vtkOpenVRRenderWindowInteractor>::New();
+    // Create new VR render window and interactor
+    auto vrRenderer = vtkSmartPointer<vtkOpenVRRenderer>::New();
+    auto vrRenderWindow = vtkSmartPointer<vtkOpenVRRenderWindow>::New();
+    auto vrInteractor = vtkSmartPointer<vtkOpenVRRenderWindowInteractor>::New();
 
     vrRenderWindow->AddRenderer(vrRenderer);
     vrInteractor->SetRenderWindow(vrRenderWindow);
 
-    // Copy actors from the main scene
+    // --- Duplicate the Scene ---
     if (sceneRenderer)
     {
         vtkActorCollection* actors = sceneRenderer->GetActors();
         actors->InitTraversal();
-        while (vtkActor* actor = actors->GetNextActor()) {
-            vrRenderer->AddActor(actor);
+
+        while (vtkActor* actor = actors->GetNextActor())
+        {
+            auto newActor = vtkSmartPointer<vtkActor>::New();
+            newActor->ShallowCopy(actor);  // <-- shallow copy actor
+            vrRenderer->AddActor(newActor);
         }
 
         vrRenderer->SetBackground(sceneRenderer->GetBackground());
     }
 
-    // ? Here is the trick ?
-    // Manually create a render window (desktop monitor) even without VR headset
-    vrRenderWindow->SetWindowName("Virtual Reality Render Window");
-    vrRenderWindow->SetSize(1000, 800);  // Nice desktop window size
+    vrRenderWindow->Initialize();
+
+    if (vrRenderWindow->GetHMD() == nullptr)
+    {
+        std::cerr << "Failed to initialize VR (HMD not detected)!" << std::endl;
+        std::cout << "[VR] No HMD found\n";
+		return;
+    }
+	else
+	{
+		std::cout << "[VR] HMD detected!\n";
+	}
+
+	vrRenderWindow->SetSize(1280, 720);
+	vrRenderWindow->SetWindowName("VR Desktop Preview");
+    
+	vrRenderWindow->SetWindowName("VR Window");
     vrRenderWindow->Render();
-
-    vrInteractor->Initialize();
-    vrInteractor->Start();  // This starts the event loop (makes window visible and interactive)
-
-    running = false;
+    vrInteractor->Start();  // Infinite loop inside thread
 }

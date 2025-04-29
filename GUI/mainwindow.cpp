@@ -413,7 +413,7 @@ void MainWindow::onStartVRClicked()
     if (!vrThread)
     {
         vrThread = new VRRenderThread(this);
-        vrThread->setSceneData(mainRenderer);
+        vrThread->setSceneData(renderer);
         vrThread->start();
     }
 }
