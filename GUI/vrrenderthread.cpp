@@ -1,4 +1,5 @@
 #include "VRRenderThread.h"
+
 #include <vtkOpenVRRenderer.h>
 #include <vtkOpenVRRenderWindow.h>
 #include <vtkOpenVRRenderWindowInteractor.h>
@@ -29,22 +30,34 @@ void VRRenderThread::run()
 {
     running = true;
 
-    auto vrRenderer = vtkSmartPointer<vtkOpenVRRenderer>::New();
-    auto vrRenderWindow = vtkSmartPointer<vtkOpenVRRenderWindow>::New();
-    auto vrInteractor = vtkSmartPointer<vtkOpenVRRenderWindowInteractor>::New();
+    // Create OpenVR Renderer, RenderWindow, Interactor
+    vtkSmartPointer<vtkOpenVRRenderer> vrRenderer = vtkSmartPointer<vtkOpenVRRenderer>::New();
+    vtkSmartPointer<vtkOpenVRRenderWindow> vrRenderWindow = vtkSmartPointer<vtkOpenVRRenderWindow>::New();
+    vtkSmartPointer<vtkOpenVRRenderWindowInteractor> vrInteractor = vtkSmartPointer<vtkOpenVRRenderWindowInteractor>::New();
 
     vrRenderWindow->AddRenderer(vrRenderer);
     vrInteractor->SetRenderWindow(vrRenderWindow);
 
     // Copy actors from the main scene
-    vtkActorCollection* actors = sceneRenderer->GetActors();
-    actors->InitTraversal();
-    while (vtkActor* actor = actors->GetNextActor()) {
-        vrRenderer->AddActor(actor);
+    if (sceneRenderer)
+    {
+        vtkActorCollection* actors = sceneRenderer->GetActors();
+        actors->InitTraversal();
+        while (vtkActor* actor = actors->GetNextActor()) {
+            vrRenderer->AddActor(actor);
+        }
+
+        vrRenderer->SetBackground(sceneRenderer->GetBackground());
     }
 
-    vrRenderer->SetBackground(sceneRenderer->GetBackground());
-
+    // ? Here is the trick ?
+    // Manually create a render window (desktop monitor) even without VR headset
+    vrRenderWindow->SetWindowName("Virtual Reality Render Window");
+    vrRenderWindow->SetSize(1000, 800);  // Nice desktop window size
     vrRenderWindow->Render();
-    vrInteractor->Start();
+
+    vrInteractor->Initialize();
+    vrInteractor->Start();  // This starts the event loop (makes window visible and interactive)
+
+    running = false;
 }
