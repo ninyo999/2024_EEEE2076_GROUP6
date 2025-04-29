@@ -102,4 +102,3 @@ private:
     ModelPart *rootItem;    /**< This is a pointer to the item at the base of the tree */
 };
 #endif
-

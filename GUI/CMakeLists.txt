@@ -35,6 +35,8 @@ find_package(VTK 9.4 REQUIRED COMPONENTS
     InteractionStyle
     FiltersSources
     ViewsQt
+    RenderingOpenVR
+
 )
 
 message(STATUS "Using Qt version: ${Qt${QT_VERSION_MAJOR}_VERSION}")
@@ -57,6 +59,8 @@ set(PROJECT_SOURCES
     backgrounddialog.h
     backgrounddialog.ui
     icons.qrc
+    vrrenderthread.h
+    vrrenderthread.cpp
 )
 
 # Create executable
@@ -92,6 +96,7 @@ target_link_libraries(GROUP6_GUI PRIVATE
     VTK::InteractionStyle
     VTK::FiltersSources
     VTK::ViewsQt
+    VTK::RenderingOpenVR
 )
 
 # Platform-specific settings

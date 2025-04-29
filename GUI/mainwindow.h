@@ -1,20 +1,28 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QMainWindow>
 #include <QTreeView>
 #include <QFile>
 #include <QFileDialog>
 #include <QColor>
+#include <QMainWindow>
 
+
+#include "VRRenderThread.h"
 #include "ModelPartList.h"
 #include "ModelPart.h"
-#include <QVTKOpenGLNativeWidget.h>
 #include <vtkSmartPointer.h>
-#include <vtkRenderer.h>
+#include <QVTKOpenGLNativeWidget.h>
 #include <vtkGenericOpenGLRenderWindow.h>
+#include <vtkRenderer.h>
 #include <vtkActor.h>  // For gridActor
 #include <vtkLight.h>  // For light
+
+// For filters
+#include <vtkClipDataSet.h>
+#include <vtkShrinkFilter.h>
+#include <vtkPlane.h>
+#include <vtkGeometryFilter.h>
 
 // For BackgroundDialog
 #include "backgrounddialog.h"
@@ -25,11 +33,8 @@
 #include <vtkPlaneSource.h>
 #include <vtkTexturedActor2D.h>
 
-// For filters
-#include <vtkClipDataSet.h>
-#include <vtkShrinkFilter.h>
-#include <vtkPlane.h>
-#include <vtkGeometryFilter.h>
+
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -66,6 +71,7 @@ private slots:
     void setSolidColorBackground(const QColor& color);
     void onClipFilterCheckboxChanged(int state);
     void onShrinkFilterCheckboxChanged(int state);
+    void onStartVRClicked();
 
 private:
     Ui::MainWindow* ui;
@@ -82,6 +88,9 @@ private:
 
     // Background
     vtkSmartPointer<vtkTexturedActor2D> backgroundActor;
+	
+	vtkSmartPointer<vtkRenderer> mainRenderer;
+    VRRenderThread* vrThread;
 };
 
 #endif // MAINWINDOW_H

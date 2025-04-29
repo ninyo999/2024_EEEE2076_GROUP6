@@ -97,6 +97,13 @@
        </widget>
       </item>
       <item>
+       <widget class="QPushButton" name="startVRButton">
+        <property name="text">
+         <string>Start VR</string>
+        </property>
+       </widget>
+      </item>
+      <item>
        <spacer name="horizontalSpacer">
         <property name="orientation">
          <enum>Qt::Orientation::Horizontal</enum>
@@ -133,7 +140,7 @@
      <x>0</x>
      <y>0</y>
      <width>829</width>
-     <height>26</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">

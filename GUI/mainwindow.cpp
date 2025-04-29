@@ -40,7 +40,7 @@ MainWindow::MainWindow(QWidget* parent)
 {
     ui->setupUi(this);
     this->setStyleSheet("background-color: ;");
-
+	mainRenderer = vtkSmartPointer<vtkRenderer>::New();
     // Connect signals to slots
     connect(ui->treeView, &QTreeView::clicked, this, &MainWindow::handleTreeClicked);
     connect(ui->actionOpen_File, &QAction::triggered, this, &MainWindow::openFile);
@@ -50,6 +50,8 @@ MainWindow::MainWindow(QWidget* parent)
     connect(ui->backgroundButton, &QPushButton::clicked, this, &MainWindow::onBackgroundButtonClicked);
     connect(ui->clipFilterCheckBox, &QCheckBox::stateChanged, this, &MainWindow::onClipFilterCheckboxChanged);
     connect(ui->shrinkFilterCheckBox, &QCheckBox::stateChanged, this, &MainWindow::onShrinkFilterCheckboxChanged);
+	connect(ui->startVRButton, &QPushButton::clicked, this, &MainWindow::onStartVRClicked);
+
     // Connect status bar signal
     connect(this, &MainWindow::statusUpdateMessage, ui->statusbar, &QStatusBar::showMessage);
 
@@ -133,10 +135,18 @@ MainWindow::MainWindow(QWidget* parent)
     // Create the top-level item
     ModelPart* moduleItem = new ModelPart({ name, visible });
     rootItem->appendChild(moduleItem);
+
 }
 
 MainWindow::~MainWindow()
 {
+
+    if (vrThread)
+    {
+        vrThread->stop();
+        vrThread->wait();
+        delete vrThread;
+    }
     delete ui;
 }
 
@@ -396,4 +406,14 @@ void MainWindow::onShrinkFilterCheckboxChanged(int state) {
 
     part->applyShrinkFilter(state == Qt::Checked, 0.8);
     renderWindow->Render();
+}
+
+void MainWindow::onStartVRClicked()
+{
+    if (!vrThread)
+    {
+        vrThread = new VRRenderThread(this);
+        vrThread->setSceneData(mainRenderer);
+        vrThread->start();
+    }
 }
