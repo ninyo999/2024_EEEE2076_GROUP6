@@ -58,14 +58,6 @@ void VRRenderThread::addActorOffline( vtkActor* actor ) {
 
 	/* Check to see if render thread is running */
 	if (!this->isRunning()) {
-		double* ac = actor->GetOrigin();
-	
-		/* I have found that these initial transforms will position the FS
-		 * car model in a sensible position but you can experiment
-		 */
-		actor->RotateX(-90);
-		actor->AddPosition(-ac[0]+0, -ac[1]-100, -ac[2]-200);
-
 		actors->AddItem(actor);
 	}
 }
