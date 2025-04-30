@@ -43,7 +43,7 @@ MainWindow::MainWindow(QWidget* parent)
 {
     ui->setupUi(this);
     this->setStyleSheet("background-color: ;");
-	vrThread = nullptr;
+	
     // Connect signals to slots
     connect(ui->treeView, &QTreeView::clicked, this, &MainWindow::handleTreeClicked);
     connect(ui->actionOpen_File, &QAction::triggered, this, &MainWindow::openFile);
@@ -413,7 +413,13 @@ void MainWindow::startVR()
     // recursively walk parts
     std::function<void(ModelPart*)> walk = [&](ModelPart* part){
         // ask for brand-new mapper+actor
-        vtkSmartPointer<vtkActor> newA = part->getNewActor();
+
+		if (!part->getActor()) return;
+			vtkSmartPointer<vtkActor> newA = part->getNewActor();
+		
+
+
+
         // copy over all properties (colour, opacity, etc)
         newA->SetProperty(part->getActor()->GetProperty());
         // queue it for the VR thread
@@ -424,7 +430,9 @@ void MainWindow::startVR()
     };
 
     // start from root
-    walk(partList->getRootItem());
+    ModelPart* root = partList->getRootItem();
+	for(int i=0; i<root->childCount(); ++i)
+		walk( root->child(i) );
 
     // and off we go…
     vrThread->start();
