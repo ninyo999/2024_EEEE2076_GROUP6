@@ -86,6 +86,7 @@ private:
     vtkSmartPointer<vtkTexturedActor2D> backgroundActor;
 
 	VRRenderThread* vrThread = nullptr;
+	void sendPartRecursive(ModelPart* part);
 };
 
 #endif // MAINWINDOW_H
