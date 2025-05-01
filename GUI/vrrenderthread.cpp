@@ -9,6 +9,9 @@
 
 #include "VRRenderThread.h"
 
+#include <QOffscreenSurface>
+#include <QOpenGLContext>
+#include <QSurfaceFormat>
 
 /* Vtk headers */
 #include <vtkActor.h>
@@ -104,37 +107,37 @@ void VRRenderThread::issueCommand( int cmd, double value ) {
  * calling VRRenderThread::start()
  */
 void VRRenderThread::run() {
-	/* You might want to edit the 3D model once VR has started, however VTK is not "thread safe". 
-	 * This means if you try to edit the VR model from the GUI thread while the VR thread is
-	 * running, the program could become corrupted and crash. The solution is to get the VR thread
-	 * to edit the model. Any decision to change the VR model will come fromthe user via the GUI thread, 
-	 * so there needs to be a mechanism to pass data from the GUi thread to the VR thread.
-	 */
+    // ??? A) Spin up a private QOpenGLContext in this VR thread ?????????
 
-	vtkNew<vtkNamedColors> colors;
+    // 1. Choose an OpenGL version/profile
+    QSurfaceFormat fmt;
+    fmt.setMajorVersion(3);
+    fmt.setMinorVersion(2);
+    fmt.setProfile(QSurfaceFormat::CoreProfile);
 
-	// Set the background color.
-	std::array<unsigned char, 4> bkg{ {26, 51, 102, 255} };
-	colors->SetColor("BkgColor", bkg.data());
-	
-	// The renderer generates the image
-	// which is then displayed on the render window.
-	// It can be thought of as a scene to which the actor is added
-	renderer = vtkOpenVRRenderer::New();	
-	
-	renderer->SetBackground(colors->GetColor3d("BkgColor").GetData());
-	
-	/* Loop through list of actors provided and add to scene */
-	vtkActor* a;
-	actors->InitTraversal();
-	while( (a = (vtkActor*)actors->GetNextActor() ) ) {
-		renderer->AddActor(a);
-	}
+    // 2. Create an offscreen surface for that context
+    QOffscreenSurface offscreen;
+    offscreen.setFormat(fmt);
+    offscreen.create();
+    if (!offscreen.isValid()) {
+        qCritical("VRThread: offscreen surface INVALID");
+        return;
+    }
 
-	/* The render window is the actual GUI window
-	 * that appears on the computer screen
-	 */
-	window = vtkOpenVRRenderWindow::New();
+    // 3. Create & bind the context to the offscreen surface
+    QOpenGLContext context;
+    context.setFormat(offscreen.format());
+    if (!context.create() || !context.makeCurrent(&offscreen)) {
+        qCritical("VRThread: failed to create/makeCurrent QOpenGLContext");
+        return;
+    }
+
+    // ??? B) Now VTK’s OpenVR window will create its own
+    //        FBOs/textures/etc on *this* context, not your GUI’s. ????
+
+    // Disable any sharing with your QVTK widget’s context:
+    window = vtkOpenVRRenderWindow::New();
+    window->SetSharedRenderWindow(nullptr);
 
 	window->Initialize();
 	window->AddRenderer(renderer);
