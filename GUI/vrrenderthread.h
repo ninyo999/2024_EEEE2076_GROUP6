@@ -15,6 +15,8 @@
 #include <QThread>
 #include <QMutex>
 #include <QWaitCondition>
+#include <deque>
+#include <functional>
 
 /* Vtk headers */
 #include <vtkActor.h>
@@ -65,6 +67,7 @@ public:
       */
     void issueCommand( int cmd, double value );
 
+	void enqueueCommand(const std::function<void()>& fn);
 
 protected:
     /** This is a re-implementation of a QThread function 
@@ -81,9 +84,11 @@ private:
     /* Use to synchronise passing of data to VR thread */
     QMutex                                              mutex;      
     QWaitCondition                                      condition;
+	std::deque<std::function<void()>>                   commandQueue;
 
     /** List of actors that will need to be added to the VR scene */
     vtkSmartPointer<vtkActorCollection>                 actors;
+
 
     /** A timer to help implement animations and visual effects */
     std::chrono::time_point<std::chrono::steady_clock>  t_last;
