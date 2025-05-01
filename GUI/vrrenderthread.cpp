@@ -49,10 +49,22 @@ VRRenderThread::VRRenderThread( QObject* parent ) {
  * not deallocated properly then there will be a memory leak, where the program's total memory
  * usage will increase for each start/stop thread cycle.
  */
-VRRenderThread::~VRRenderThread() {
+VRRenderThread::~VRRenderThread()
+{
+  // Make sure the thread has really stopped before we delete
+  if (this->isRunning())
+  {
+    this->issueCommand(VRRenderThread::END_RENDER, 0);
+    this->wait();
+  }
 
+  // Now delete every VTK object we New()'d
+  if (this->interactor)   { this->interactor->Delete();   this->interactor   = nullptr; }
+  if (this->camera)       { this->camera->Delete();       this->camera       = nullptr; }
+  if (this->renderer)     { this->renderer->Delete();     this->renderer     = nullptr; }
+  if (this->window)       { this->window->Delete();       this->window       = nullptr; }
+  if (this->actors)       { this->actors->Delete();       this->actors       = nullptr; }
 }
-
 
 void VRRenderThread::addActorOffline( vtkActor* actor ) {
 

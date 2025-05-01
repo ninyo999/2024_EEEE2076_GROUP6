@@ -52,8 +52,7 @@ public:
 
     /**  Denstructor
       */
-    ~VRRenderThread();
-
+	~VRRenderThread() override;
     /** This allows actors to be added to the VR renderer BEFORE the VR
       * interactor has been started 
      */
