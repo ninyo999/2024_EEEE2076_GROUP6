@@ -68,6 +68,7 @@ private slots:
     void setSolidColorBackground(const QColor& color);
     void onClipFilterCheckboxChanged(int state);
     void onShrinkFilterCheckboxChanged(int state);
+	void updateVRRenderer();
 
 private:
     Ui::MainWindow* ui;
@@ -87,6 +88,7 @@ private:
 
 	VRRenderThread* vrThread = nullptr;
 	void sendPartRecursive(ModelPart* part);
+
 };
 
 #endif // MAINWINDOW_H
