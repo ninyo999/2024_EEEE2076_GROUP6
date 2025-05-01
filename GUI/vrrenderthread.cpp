@@ -9,7 +9,7 @@
 
 #include "VRRenderThread.h"
 
-
+#include <QMutexLocker>
 /* Vtk headers */
 #include <vtkActor.h>
 #include <vtkOpenVRRenderWindow.h>				
@@ -151,6 +151,22 @@ void VRRenderThread::run() {
 	while( !interactor->GetDone() && !this->endRender ) {
 		interactor->DoOneEvent( window, renderer );
 
+        // handle any GUI-driven scene update
+        {
+            QMutexLocker lock(&this->mutex);
+            if (updatePending) {
+                // clear out the old props
+                renderer->RemoveAllViewProps();
+
+                // re-add exactly the new list
+                for (auto& a : pendingActors)
+                    renderer->AddActor(a);
+
+                window->Render();
+                updatePending = false;
+            }
+        }
+
 		/* Check to see if enough time has elapsed since last update 
 		 * This looks overcomplicated (and it is, C++ loves to make things unecessarily complicated!) but
 		 * is really just checking if more than 20ms have elaspsed since the last animation step. The 
@@ -190,4 +206,11 @@ void VRRenderThread::run() {
 			t_last = std::chrono::steady_clock::now();
 		}
 	}
+}
+
+void VRRenderThread::updateActors(const std::vector<vtkSmartPointer<vtkActor>>& newActors)
+{
+    QMutexLocker lock(&mutex);
+    pendingActors = newActors;
+    updatePending = true;
 }

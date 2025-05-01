@@ -68,7 +68,8 @@ private slots:
     void setSolidColorBackground(const QColor& color);
     void onClipFilterCheckboxChanged(int state);
     void onShrinkFilterCheckboxChanged(int state);
-	void updateVRRenderer();
+	void pushVRScene();
+	void collectVRActors(ModelPart* part, std::vector<vtkSmartPointer<vtkActor>>& out);
 
 private:
     Ui::MainWindow* ui;
