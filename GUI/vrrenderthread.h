@@ -23,7 +23,7 @@
 #include <vtkOpenVRRenderer.h>					
 #include <vtkOpenVRCamera.h>	
 #include <vtkActorCollection.h>
-#include <vtkCommand.h>
+
 
 
 
@@ -99,6 +99,7 @@ private:
     double rotateX;         /*< Degrees to rotate around X axis (per time-step) */
     double rotateY;         /*< Degrees to rotate around Y axis (per time-step) */
     double rotateZ;         /*< Degrees to rotate around Z axis (per time-step) */
+
 };
 
 
