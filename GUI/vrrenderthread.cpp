@@ -9,9 +9,7 @@
 
 #include "VRRenderThread.h"
 
-#include <QMutexLocker>
-#include <QOffscreenSurface>
-#include <QOpenGLContext>
+
 /* Vtk headers */
 #include <vtkActor.h>
 #include <vtkOpenVRRenderWindow.h>				
@@ -93,82 +91,103 @@ void VRRenderThread::issueCommand( int cmd, double value ) {
  * can fork into two separate execution paths. This thread is triggered by
  * calling VRRenderThread::start()
  */
+void VRRenderThread::run() {
+	/* You might want to edit the 3D model once VR has started, however VTK is not "thread safe". 
+	 * This means if you try to edit the VR model from the GUI thread while the VR thread is
+	 * running, the program could become corrupted and crash. The solution is to get the VR thread
+	 * to edit the model. Any decision to change the VR model will come fromthe user via the GUI thread, 
+	 * so there needs to be a mechanism to pass data from the GUi thread to the VR thread.
+	 */
 
-void VRRenderThread::run()
-{
-    // ??? 0) Set up a completely independent GL context + surface ??????????
-    QSurfaceFormat fmt;
-    fmt.setMajorVersion(4);
-    fmt.setMinorVersion(1);
-    fmt.setProfile(QSurfaceFormat::CoreProfile);
+	vtkNew<vtkNamedColors> colors;
 
-    QOffscreenSurface offscreenSurface;
-    offscreenSurface.setFormat(fmt);
-    offscreenSurface.create();
-    if (!offscreenSurface.isValid()) {
-        qWarning("Failed to create offscreen surface for VR!");
-        return;
-    }
+	// Set the background color.
+	std::array<unsigned char, 4> bkg{ {26, 51, 102, 255} };
+	colors->SetColor("BkgColor", bkg.data());
+	
+	// The renderer generates the image
+	// which is then displayed on the render window.
+	// It can be thought of as a scene to which the actor is added
+	renderer = vtkOpenVRRenderer::New();	
+	
+	renderer->SetBackground(colors->GetColor3d("BkgColor").GetData());
+	
+	/* Loop through list of actors provided and add to scene */
+	vtkActor* a;
+	actors->InitTraversal();
+	while( (a = (vtkActor*)actors->GetNextActor() ) ) {
+		renderer->AddActor(a);
+	}
 
-    QOpenGLContext offscreenContext;
-    offscreenContext.setFormat(offscreenSurface.format());
-    if (!offscreenContext.create()) {
-        qWarning("Failed to create offscreen GL context for VR!");
-        return;
-    }
+	/* The render window is the actual GUI window
+	 * that appears on the computer screen
+	 */
+	window = vtkOpenVRRenderWindow::New();
 
-    if (!offscreenContext.makeCurrent(&offscreenSurface)) {
-        qWarning("Failed to make offscreen GL context current in VR thread!");
-        return;
-    }
+	window->Initialize();
+	window->AddRenderer(renderer);
+	
+	/* Create Open VR Camera */
+	camera = vtkOpenVRCamera::New();				
+	renderer->SetActiveCamera(camera);			
 
-    // ??? 1) Build the VTK pipeline ???????????????????????????????????????
-    vtkNew<vtkNamedColors> colors;
-    std::array<unsigned char,4> bkg{{26,51,102,255}};
-    colors->SetColor("BkgColor", bkg.data());
+	/* The render window interactor captures mouse events
+	 * and will perform appropriate camera or actor manipulation
+	 * depending on the nature of the events.
+	 */
+	interactor = vtkOpenVRRenderWindowInteractor::New();									
+	interactor->SetRenderWindow(window);													
+	interactor->Initialize();
+	window->Render();
+	
 
-    renderer = vtkOpenVRRenderer::New();
-    renderer->SetBackground(colors->GetColor3d("BkgColor").GetData());
+	/* Now start the VR - we will implement the command loop manually
+	 * so it can be interrupted to make modifications to the actors
+	 * (i.e. to implement animation)
+	 */
+	endRender = false;
+	t_last = std::chrono::steady_clock::now();
 
-    // Add any actors from actors->InitTraversal() …
+	while( !interactor->GetDone() && !this->endRender ) {
+		interactor->DoOneEvent( window, renderer );
 
-    // ??? 2) Create the VR window WITHOUT sharing Qt’s widget context ????
-    window = vtkOpenVRRenderWindow::New();
-    window->SetSharedRenderWindow(nullptr);    // disable any context sharing
-    window->Initialize();
-    window->AddRenderer(renderer);
+		/* Check to see if enough time has elapsed since last update 
+		 * This looks overcomplicated (and it is, C++ loves to make things unecessarily complicated!) but
+		 * is really just checking if more than 20ms have elaspsed since the last animation step. The 
+		 * complications comes from the fact that numbers representing time on computers don't usually have
+		 * standard second/millisecond units. Because everything is a class in C++, the converion from
+		 * computer units to seconds/milliseconds ends up looking like what you see below.
+		 * 
+		 * My choice of 20ms is arbitrary, if this value is too small the animation calculations could begin to
+		 * interfere with the interator processes and make the simulation unresponsive. If it is too large
+		 * the animations will be jerky. Play with the value to see what works best.
+		 */
+		if (std::chrono::duration_cast <std::chrono::milliseconds> (std::chrono::steady_clock::now() - t_last).count() > 20) {
 
-    // ??? 3) Set up camera & interactor ???????????????????????????????
-    camera = vtkOpenVRCamera::New();
-    renderer->SetActiveCamera(camera);
+			/* Do things that might need doing ... */
+			vtkActorCollection* actorList = renderer->GetActors();
+			vtkActor* a;
 
-    interactor = vtkOpenVRRenderWindowInteractor::New();
-    interactor->SetRenderWindow(window);
-    interactor->Initialize();
+			/* X Rotation */
+			actorList->InitTraversal();
+			while ((a = (vtkActor*)actorList->GetNextActor())) {
+				a->RotateX(rotateX);
+			}
 
-    // First frame
-    window->Render();
+			/* Y Rotation */
+			actorList->InitTraversal();
+			while ((a = (vtkActor*)actorList->GetNextActor())) {
+				a->RotateY(rotateY);
+			}
 
-    // ??? 4) VR loop ??????????????????????????????????????????????????
-    endRender = false;
-    t_last    = std::chrono::steady_clock::now();
-
-    while (!interactor->GetDone() && !endRender) {
-        interactor->DoOneEvent(window, renderer);
-
-        // … your animation or updatePending logic …
-
-        // swap buffers & finish
-        window->Render();
-    }
-
-    // ??? 5) Clean up your offscreen context ???????????????????????????
-    offscreenContext.doneCurrent();
-    // (Qt will destroy the offscreenSurface/context on thread exit)
-}
-void VRRenderThread::updateActors(const std::vector<vtkSmartPointer<vtkActor>>& newActors)
-{
-    QMutexLocker lock(&mutex);
-    pendingActors = newActors;
-    updatePending = true;
+			/* Z Rotation */
+			actorList->InitTraversal();
+			while ((a = (vtkActor*)actorList->GetNextActor())) {
+				a->RotateZ(rotateZ);
+			}
+			
+			/* Remember time now */
+			t_last = std::chrono::steady_clock::now();
+		}
+	}
 }

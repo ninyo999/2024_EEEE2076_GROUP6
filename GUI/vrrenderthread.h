@@ -24,8 +24,6 @@
 #include <vtkOpenVRCamera.h>	
 #include <vtkActorCollection.h>
 #include <vtkCommand.h>
-#include <vector>
-#include <vtkActor.h>
 
 
 
@@ -54,8 +52,7 @@ public:
 
     /**  Denstructor
       */
-    ~VRRenderThread()override;
-
+    ~VRRenderThread();
 
     /** This allows actors to be added to the VR renderer BEFORE the VR
       * interactor has been started 
@@ -69,7 +66,6 @@ public:
       */
     void issueCommand( int cmd, double value );
 
-	void updateActors(const std::vector<vtkSmartPointer<vtkActor>>& actors);
 
 protected:
     /** This is a re-implementation of a QThread function 
@@ -92,11 +88,6 @@ private:
 
     /** A timer to help implement animations and visual effects */
     std::chrono::time_point<std::chrono::steady_clock>  t_last;
-
-	std::vector<vtkSmartPointer<vtkActor>> pendingActors;
-   
-	bool updatePending = false;
-
 
     /** This will be set to false by the constructor, if it is set to true
       * by the GUI then the rendering will end 
