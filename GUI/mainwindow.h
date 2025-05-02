@@ -33,6 +33,8 @@
 #include <vtkPlane.h>
 #include <vtkGeometryFilter.h>
 
+#include <vtkSkybox.h> // Include for skybox
+
 QT_BEGIN_NAMESPACE
 namespace Ui {
     class MainWindow;
@@ -59,7 +61,6 @@ public slots:
     void onLightIntensityChanged(int value);
     void startVR();
     void onLoadSkyboxClicked();  // Skybox loading function
-
 
 signals:
     void statusUpdateMessage(const QString& message, int timeout);
@@ -96,6 +97,7 @@ private:
     QTimer* rotationTimer = nullptr;
     int rotationSpeed = 0;
 
+    vtkSmartPointer<vtkSkybox> skybox;  // Added skybox member to render skybox in the scene
 };
 
 #endif // MAINWINDOW_H
