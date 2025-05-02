@@ -61,6 +61,8 @@ set(PROJECT_SOURCES
     icons.qrc
     vrrenderthread.cpp
     vrrenderthread.h
+    skyboxutils.cpp
+    skyboxutils.h
 )
 
 # Create executable

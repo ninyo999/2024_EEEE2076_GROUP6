@@ -6,7 +6,7 @@
 #include <QFile>
 #include <QFileDialog>
 #include <QColor>
-
+#include "skyboxutils.h"
 #include "ModelPartList.h"
 #include "ModelPart.h"
 #include "VRRenderThread.h"
@@ -59,6 +59,8 @@ public slots:
     void updateRenderFromTree(const QModelIndex& index);
     void onLightIntensityChanged(int value);
 	void startVR();
+    void onLoadSkyboxClicked();
+
 
 signals:
     void statusUpdateMessage(const QString& message, int timeout);
