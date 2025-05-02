@@ -61,7 +61,6 @@ public slots:
     void onLightIntensityChanged(int value);
     void startVR();
 	void stopVR();
-	void onVRToggle(bool checked);
     void onLoadSkyboxClicked();  // Skybox loading function
 
 signals:
