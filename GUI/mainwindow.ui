@@ -123,12 +123,15 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="onVRToggle">
+       <widget class="QPushButton" name="startVRButton">
         <property name="text">
          <string>Start VR</string>
         </property>
         <property name="checkable">
          <bool>true</bool>
+        </property>
+        <property name="checked">
+         <bool>false</bool>
         </property>
        </widget>
       </item>
