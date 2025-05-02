@@ -136,6 +136,19 @@
        </widget>
       </item>
       <item>
+       <widget class="QPushButton" name="stopVRButton">
+        <property name="text">
+         <string>Stop VR</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+        <property name="checked">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
        <spacer name="horizontalSpacer">
         <property name="orientation">
          <enum>Qt::Orientation::Horizontal</enum>

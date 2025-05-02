@@ -60,7 +60,7 @@ public slots:
     void onLightIntensityChanged(int value);
 	void startVR();
 	void stopVR();
-    void onVRToggle(bool checked);
+
 
 signals:
     void statusUpdateMessage(const QString& message, int timeout);
