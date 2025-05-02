@@ -48,6 +48,7 @@ public:
     /** Adds a skybox to the VR renderer */
     void loadSkybox(const std::vector<std::string>& faceFilenames);
 
+public slots:
 	void setVRBackgroundColor(const QColor& color);
 
 protected:
