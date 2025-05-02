@@ -61,13 +61,9 @@ set(PROJECT_SOURCES
     icons.qrc
     vrrenderthread.cpp
     vrrenderthread.h
+    skyboxutils.cpp
+    skyboxutils.h
 )
-
-# Wrap UI files with Qt's uic tool
-qt6_wrap_ui(UI_HEADERS ${UI_FILES})
-
-# Add generated UI header files to the list of headers
-list(APPEND HEADERS ${UI_HEADERS})
 
 # Create executable
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

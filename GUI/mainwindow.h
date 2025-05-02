@@ -6,7 +6,7 @@
 #include <QFile>
 #include <QFileDialog>
 #include <QColor>
-
+#include "skyboxutils.h"
 #include "ModelPartList.h"
 #include "ModelPart.h"
 #include "VRRenderThread.h"
@@ -17,7 +17,6 @@
 #include <vtkActor.h>  // For gridActor
 #include <vtkLight.h>  // For light
 #include <QTimer>
-
 
 // For BackgroundDialog
 #include "backgrounddialog.h"
@@ -33,6 +32,8 @@
 #include <vtkShrinkFilter.h>
 #include <vtkPlane.h>
 #include <vtkGeometryFilter.h>
+
+#include <vtkSkybox.h> // Include for skybox
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -58,9 +59,8 @@ public slots:
     void toggleTreeView();
     void updateRenderFromTree(const QModelIndex& index);
     void onLightIntensityChanged(int value);
-	void startVR();
-	void stopVR();
-
+    void startVR();
+    void onLoadSkyboxClicked();  // Skybox loading function
 
 signals:
     void statusUpdateMessage(const QString& message, int timeout);
@@ -73,12 +73,12 @@ private slots:
     void onClipFilterCheckboxChanged(int state);
     void onShrinkFilterCheckboxChanged(int state);
     void updateVRRenderer();
+	void updateVRBackground(const QColor& color);
 
     // New for rotation feature
     void onRotationSpeedChanged(int value);
     void rotateModels();
     void rotatePartRecursive(ModelPart* part, int speed);
-
 
 private:
     Ui::MainWindow* ui;
@@ -98,6 +98,7 @@ private:
     QTimer* rotationTimer = nullptr;
     int rotationSpeed = 0;
 
+    vtkSmartPointer<vtkSkybox> skybox;  // Added skybox member to render skybox in the scene
 };
 
 #endif // MAINWINDOW_H

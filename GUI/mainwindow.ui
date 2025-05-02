@@ -136,15 +136,9 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="stopVRButton">
+       <widget class="QPushButton" name="SkyboxButton">
         <property name="text">
-         <string>Stop VR</string>
-        </property>
-        <property name="checkable">
-         <bool>true</bool>
-        </property>
-        <property name="checked">
-         <bool>false</bool>
+         <string>Skybox</string>
         </property>
        </widget>
       </item>
@@ -185,7 +179,7 @@
      <x>0</x>
      <y>0</y>
      <width>829</width>
-     <height>22</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
