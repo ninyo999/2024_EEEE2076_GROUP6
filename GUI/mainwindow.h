@@ -16,6 +16,8 @@
 #include <vtkGenericOpenGLRenderWindow.h>
 #include <vtkActor.h>  // For gridActor
 #include <vtkLight.h>  // For light
+#include <QTimer>
+
 
 // For BackgroundDialog
 #include "backgrounddialog.h"
@@ -68,7 +70,13 @@ private slots:
     void setSolidColorBackground(const QColor& color);
     void onClipFilterCheckboxChanged(int state);
     void onShrinkFilterCheckboxChanged(int state);
-	void updateVRRenderer();
+    void updateVRRenderer();
+
+    // New for rotation feature
+    void onRotationSpeedChanged(int value);
+    void rotateModels();
+    void rotatePartRecursive(ModelPart* part, int speed);
+
 
 private:
     Ui::MainWindow* ui;
@@ -77,17 +85,16 @@ private:
     vtkSmartPointer<vtkRenderer> renderer;
     vtkSmartPointer<vtkGenericOpenGLRenderWindow> renderWindow;
 
-    // Floor actor
     vtkSmartPointer<vtkActor> gridActor;
-
-    // Light
     vtkSmartPointer<vtkLight> light;
-
-    // Background
     vtkSmartPointer<vtkTexturedActor2D> backgroundActor;
 
-	VRRenderThread* vrThread = nullptr;
-	void sendPartRecursive(ModelPart* part);
+    VRRenderThread* vrThread = nullptr;
+    void sendPartRecursive(ModelPart* part);
+
+    // New for rotation feature
+    QTimer* rotationTimer = nullptr;
+    int rotationSpeed = 0;
 
 };
 
