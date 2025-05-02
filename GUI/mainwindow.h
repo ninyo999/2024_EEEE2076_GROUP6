@@ -59,8 +59,13 @@ public slots:
     void updateRenderFromTree(const QModelIndex& index);
     void onLightIntensityChanged(int value);
 	void startVR();
+<<<<<<< HEAD
     void onLoadSkyboxClicked();
 
+=======
+	void stopVR();
+    void onVRToggle(bool checked);
+>>>>>>> c9fa9bcf001117fae7016631a0e8e0a6ac66ea9e
 
 signals:
     void statusUpdateMessage(const QString& message, int timeout);
