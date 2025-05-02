@@ -59,6 +59,8 @@ public slots:
     void updateRenderFromTree(const QModelIndex& index);
     void onLightIntensityChanged(int value);
 	void startVR();
+	void stopVR();
+    void onVRToggle(bool checked);
 
 signals:
     void statusUpdateMessage(const QString& message, int timeout);

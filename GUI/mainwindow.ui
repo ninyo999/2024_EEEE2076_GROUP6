@@ -123,7 +123,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="startVRButton">
+       <widget class="QPushButton" name="onVRToggle">
         <property name="text">
          <string>Start VR</string>
         </property>
@@ -166,7 +166,7 @@
      <x>0</x>
      <y>0</y>
      <width>829</width>
-     <height>26</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
