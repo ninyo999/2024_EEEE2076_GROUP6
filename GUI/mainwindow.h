@@ -18,7 +18,6 @@
 #include <vtkLight.h>  // For light
 #include <QTimer>
 
-
 // For BackgroundDialog
 #include "backgrounddialog.h"
 #include <vtkImageReader2Factory.h>
@@ -58,14 +57,9 @@ public slots:
     void toggleTreeView();
     void updateRenderFromTree(const QModelIndex& index);
     void onLightIntensityChanged(int value);
-	void startVR();
-<<<<<<< HEAD
-    void onLoadSkyboxClicked();
+    void startVR();
+    void onLoadSkyboxClicked();  // Skybox loading function
 
-=======
-	void stopVR();
-    void onVRToggle(bool checked);
->>>>>>> c9fa9bcf001117fae7016631a0e8e0a6ac66ea9e
 
 signals:
     void statusUpdateMessage(const QString& message, int timeout);
@@ -83,7 +77,6 @@ private slots:
     void onRotationSpeedChanged(int value);
     void rotateModels();
     void rotatePartRecursive(ModelPart* part, int speed);
-
 
 private:
     Ui::MainWindow* ui;
