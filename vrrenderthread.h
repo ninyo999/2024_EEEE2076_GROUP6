@@ -47,11 +47,8 @@ public:
 
     /** Adds a skybox to the VR renderer */
     void loadSkybox(const std::vector<std::string>& faceFilenames);
-<<<<<<< HEAD
 
 	void setVRBackgroundColor(const QColor& color);
-=======
->>>>>>> 30da07d324506e8a214e0b4efc8a6396d83fe73b
 
 protected:
     /** This is a re-implementation of a QThread function */
