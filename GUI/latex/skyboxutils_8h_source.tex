@@ -1,0 +1,15 @@
+\doxysection{skyboxutils.\+h}
+\hypertarget{skyboxutils_8h_source}{}\label{skyboxutils_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vtkSmartPointer.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vtkRenderer.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <vtkOpenGLTexture.h>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ vtkSmartPointer<vtkOpenGLTexture>\ LoadCubemapTexture(\textcolor{keyword}{const}\ std::vector<std::string>\&\ faceFilenames);}
+\DoxyCodeLine{00010\ \textcolor{keywordtype}{void}\ AddSkyboxToRenderer(vtkRenderer*\ renderer,\ vtkTexture*\ cubemapTexture);}
+
+\end{DoxyCode}

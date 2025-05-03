@@ -1,0 +1,114 @@
+\doxysection{VRRender\+Thread Class Reference}
+\hypertarget{class_v_r_render_thread}{}\label{class_v_r_render_thread}\index{VRRenderThread@{VRRenderThread}}
+Inheritance diagram for VRRender\+Thread\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_v_r_render_thread}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \newline
+{\bfseries END\+\_\+\+RENDER}
+, {\bfseries ROTATE\+\_\+X}
+, {\bfseries ROTATE\+\_\+Y}
+, {\bfseries ROTATE\+\_\+Z}
+, \newline
+{\bfseries SET\+\_\+\+LIGHT\+\_\+\+INTENSITY}
+, {\bfseries LOAD\+\_\+\+SKYBOX}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_v_r_render_thread_ae1679fed26b44e9fc1bb4ba9d93b56c3}\label{class_v_r_render_thread_ae1679fed26b44e9fc1bb4ba9d93b56c3} 
+void {\bfseries set\+VRBackground\+Color} (const QColor \&color)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_v_r_render_thread_a35976e55f6655840aa217aa8a066f196}{VRRender\+Thread}} (QObject \texorpdfstring{$\ast$}{*}parent=nullptr)
+\item 
+\mbox{\hyperlink{class_v_r_render_thread_a2fa57b06d1deb3cacb9bf2c142618b49}{\texorpdfstring{$\sim$}{\string~}\+VRRender\+Thread}} () override
+\item 
+void \mbox{\hyperlink{class_v_r_render_thread_a17bb943e3b852339398cfbb7cb12cf13}{add\+Actor\+Offline}} (vtk\+Actor \texorpdfstring{$\ast$}{*}actor)
+\item 
+void \mbox{\hyperlink{class_v_r_render_thread_abbc905472309a2da473241a596e43813}{issue\+Command}} (int cmd, double value)
+\item 
+void \mbox{\hyperlink{class_v_r_render_thread_a4e7125795136410a3fd29129c702e47b}{load\+Skybox}} (const std\+::vector$<$ std\+::string $>$ \&face\+Filenames)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+enum VRRender\+Thread\+:: \{ ... \}  \mbox{\hyperlink{class_v_r_render_thread_a37083d6d0165dbaa743828b4636bd008}{Command}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_v_r_render_thread_af5bbbaf8625fc42278476a43bf018661}{run}} () override
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_v_r_render_thread_a6041fe65caa01f8a4c138b23151ed9cc}\doxysubsubsection{\texorpdfstring{anonymous enum}{anonymous enum}}
+{\footnotesize\ttfamily \label{class_v_r_render_thread_a6041fe65caa01f8a4c138b23151ed9cc} 
+anonymous enum}
+
+List of command names 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_v_r_render_thread_a35976e55f6655840aa217aa8a066f196}\index{VRRenderThread@{VRRenderThread}!VRRenderThread@{VRRenderThread}}
+\index{VRRenderThread@{VRRenderThread}!VRRenderThread@{VRRenderThread}}
+\doxysubsubsection{\texorpdfstring{VRRenderThread()}{VRRenderThread()}}
+{\footnotesize\ttfamily \label{class_v_r_render_thread_a35976e55f6655840aa217aa8a066f196} 
+VRRender\+Thread\+::\+VRRender\+Thread (\begin{DoxyParamCaption}\item[{QObject \texorpdfstring{$\ast$}{*}}]{parent}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})}
+
+Constructor \Hypertarget{class_v_r_render_thread_a2fa57b06d1deb3cacb9bf2c142618b49}\index{VRRenderThread@{VRRenderThread}!````~VRRenderThread@{\texorpdfstring{$\sim$}{\string~}VRRenderThread}}
+\index{````~VRRenderThread@{\texorpdfstring{$\sim$}{\string~}VRRenderThread}!VRRenderThread@{VRRenderThread}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}VRRenderThread()}{\string~VRRenderThread()}}
+{\footnotesize\ttfamily \label{class_v_r_render_thread_a2fa57b06d1deb3cacb9bf2c142618b49} 
+VRRender\+Thread\+::\texorpdfstring{$\sim$}{\string~}\+VRRender\+Thread (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+Destructor 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_v_r_render_thread_a17bb943e3b852339398cfbb7cb12cf13}\index{VRRenderThread@{VRRenderThread}!addActorOffline@{addActorOffline}}
+\index{addActorOffline@{addActorOffline}!VRRenderThread@{VRRenderThread}}
+\doxysubsubsection{\texorpdfstring{addActorOffline()}{addActorOffline()}}
+{\footnotesize\ttfamily \label{class_v_r_render_thread_a17bb943e3b852339398cfbb7cb12cf13} 
+void VRRender\+Thread\+::add\+Actor\+Offline (\begin{DoxyParamCaption}\item[{vtk\+Actor \texorpdfstring{$\ast$}{*}}]{actor}{}\end{DoxyParamCaption})}
+
+This allows actors to be added to the VR renderer BEFORE the VR interactor has been started \Hypertarget{class_v_r_render_thread_abbc905472309a2da473241a596e43813}\index{VRRenderThread@{VRRenderThread}!issueCommand@{issueCommand}}
+\index{issueCommand@{issueCommand}!VRRenderThread@{VRRenderThread}}
+\doxysubsubsection{\texorpdfstring{issueCommand()}{issueCommand()}}
+{\footnotesize\ttfamily \label{class_v_r_render_thread_abbc905472309a2da473241a596e43813} 
+void VRRender\+Thread\+::issue\+Command (\begin{DoxyParamCaption}\item[{int}]{cmd}{, }\item[{double}]{value}{}\end{DoxyParamCaption})}
+
+This allows commands to be issued to the VR thread in a thread-\/safe way \Hypertarget{class_v_r_render_thread_a4e7125795136410a3fd29129c702e47b}\index{VRRenderThread@{VRRenderThread}!loadSkybox@{loadSkybox}}
+\index{loadSkybox@{loadSkybox}!VRRenderThread@{VRRenderThread}}
+\doxysubsubsection{\texorpdfstring{loadSkybox()}{loadSkybox()}}
+{\footnotesize\ttfamily \label{class_v_r_render_thread_a4e7125795136410a3fd29129c702e47b} 
+void VRRender\+Thread\+::load\+Skybox (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{face\+Filenames}{}\end{DoxyParamCaption})}
+
+Adds a skybox to the VR renderer \Hypertarget{class_v_r_render_thread_af5bbbaf8625fc42278476a43bf018661}\index{VRRenderThread@{VRRenderThread}!run@{run}}
+\index{run@{run}!VRRenderThread@{VRRenderThread}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily \label{class_v_r_render_thread_af5bbbaf8625fc42278476a43bf018661} 
+void VRRender\+Thread\+::run (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+
+This is a re-\/implementation of a QThread function 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_v_r_render_thread_a37083d6d0165dbaa743828b4636bd008}\index{VRRenderThread@{VRRenderThread}!Command@{Command}}
+\index{Command@{Command}!VRRenderThread@{VRRenderThread}}
+\doxysubsubsection{\texorpdfstring{[]}{[]}}
+{\footnotesize\ttfamily \label{class_v_r_render_thread_a37083d6d0165dbaa743828b4636bd008} 
+enum  \{ ... \}  VRRender\+Thread\+::\+Command}
+
+List of command names 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+vrrenderthread.\+h\item 
+\mbox{\hyperlink{vrrenderthread_8cpp}{vrrenderthread.\+cpp}}\end{DoxyCompactItemize}

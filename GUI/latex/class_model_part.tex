@@ -1,0 +1,101 @@
+\doxysection{Model\+Part Class Reference}
+\hypertarget{class_model_part}{}\label{class_model_part}\index{ModelPart@{ModelPart}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_model_part_ab54e8a35913c7cdaeadd20fc76ed6ac1}\label{class_model_part_ab54e8a35913c7cdaeadd20fc76ed6ac1} 
+{\bfseries Model\+Part} (const QList$<$ QVariant $>$ \&data, \mbox{\hyperlink{class_model_part}{Model\+Part}} \texorpdfstring{$\ast$}{*}parent=nullptr)
+\item 
+\Hypertarget{class_model_part_a52074db110367665c3e262919e172c98}\label{class_model_part_a52074db110367665c3e262919e172c98} 
+void {\bfseries append\+Child} (\mbox{\hyperlink{class_model_part}{Model\+Part}} \texorpdfstring{$\ast$}{*}item)
+\item 
+\Hypertarget{class_model_part_af32381b69415f0aa6bdfd84435f842cc}\label{class_model_part_af32381b69415f0aa6bdfd84435f842cc} 
+\mbox{\hyperlink{class_model_part}{Model\+Part}} \texorpdfstring{$\ast$}{*} {\bfseries child} (int row)
+\item 
+\Hypertarget{class_model_part_aea4bb035b2b3827c0abf677fb9dc68ce}\label{class_model_part_aea4bb035b2b3827c0abf677fb9dc68ce} 
+int {\bfseries child\+Count} () const
+\item 
+\Hypertarget{class_model_part_a94623f4e95be3c462297c1abc7b6f3c7}\label{class_model_part_a94623f4e95be3c462297c1abc7b6f3c7} 
+int {\bfseries column\+Count} () const
+\item 
+\Hypertarget{class_model_part_a92fa5d175c7dc8fd785c68490b26faaf}\label{class_model_part_a92fa5d175c7dc8fd785c68490b26faaf} 
+QVariant {\bfseries data} (int column, int role=Qt\+::\+Display\+Role) const
+\item 
+\Hypertarget{class_model_part_a3232893d070ddcec42631bf5b043add8}\label{class_model_part_a3232893d070ddcec42631bf5b043add8} 
+void {\bfseries set} (int column, const QVariant \&value)
+\item 
+\Hypertarget{class_model_part_a9be3859d2a298e88d850a2480b7639f7}\label{class_model_part_a9be3859d2a298e88d850a2480b7639f7} 
+\mbox{\hyperlink{class_model_part}{Model\+Part}} \texorpdfstring{$\ast$}{*} {\bfseries parent\+Item} ()
+\item 
+\Hypertarget{class_model_part_a05bc0dd06a3658d9a2c46fa717dec910}\label{class_model_part_a05bc0dd06a3658d9a2c46fa717dec910} 
+int {\bfseries row} () const
+\item 
+\Hypertarget{class_model_part_ab8ea6f5bbfb79882c22061d1446829aa}\label{class_model_part_ab8ea6f5bbfb79882c22061d1446829aa} 
+void {\bfseries set\+Color} (const QColor \&color)
+\item 
+\Hypertarget{class_model_part_aa974125427ff13c6d84417aa98db4115}\label{class_model_part_aa974125427ff13c6d84417aa98db4115} 
+unsigned char {\bfseries get\+ColourR} () const
+\item 
+\Hypertarget{class_model_part_aaa8f00a3629526890007b5934807d354}\label{class_model_part_aaa8f00a3629526890007b5934807d354} 
+unsigned char {\bfseries get\+ColourG} () const
+\item 
+\Hypertarget{class_model_part_a2e218138ad076a99db3c0ee2e82ea922}\label{class_model_part_a2e218138ad076a99db3c0ee2e82ea922} 
+unsigned char {\bfseries get\+ColourB} () const
+\item 
+\Hypertarget{class_model_part_a7637be7d439b38ca410883a8ca6f792b}\label{class_model_part_a7637be7d439b38ca410883a8ca6f792b} 
+QColor {\bfseries color} () const
+\item 
+\Hypertarget{class_model_part_a4cfdee348fd6870756ce836f67b1ce75}\label{class_model_part_a4cfdee348fd6870756ce836f67b1ce75} 
+void {\bfseries set\+Visible} (bool visible)
+\item 
+\Hypertarget{class_model_part_aa37200ef9b7eed6b970fef1b08234f3a}\label{class_model_part_aa37200ef9b7eed6b970fef1b08234f3a} 
+bool {\bfseries visible} () const
+\item 
+\Hypertarget{class_model_part_a2ce11d94c34c3570a15867fa08bb6be2}\label{class_model_part_a2ce11d94c34c3570a15867fa08bb6be2} 
+void {\bfseries set\+Name} (const QString \&new\+Name)
+\item 
+\Hypertarget{class_model_part_a8d004c61b9f9cb0da895956a4c22b97b}\label{class_model_part_a8d004c61b9f9cb0da895956a4c22b97b} 
+void {\bfseries load\+STL} (QString file\+Name)
+\item 
+\Hypertarget{class_model_part_a60f905f171e3554a9500db10d46cf20d}\label{class_model_part_a60f905f171e3554a9500db10d46cf20d} 
+vtk\+Smart\+Pointer$<$ vtk\+Actor $>$ {\bfseries get\+Actor} () const
+\item 
+\Hypertarget{class_model_part_a54c30a6cb33f9f874113168c71446dfb}\label{class_model_part_a54c30a6cb33f9f874113168c71446dfb} 
+vtk\+Smart\+Pointer$<$ vtk\+Actor $>$ {\bfseries get\+New\+Actor} () const
+\item 
+\Hypertarget{class_model_part_a83709e065b2dac2fec9ef4a777a22608}\label{class_model_part_a83709e065b2dac2fec9ef4a777a22608} 
+void {\bfseries set\+Renderer} (vtk\+Renderer \texorpdfstring{$\ast$}{*}renderer)
+\item 
+\Hypertarget{class_model_part_a52b26b7adbeabaadce95ddf9df608937}\label{class_model_part_a52b26b7adbeabaadce95ddf9df608937} 
+void {\bfseries remove\+Child} (\mbox{\hyperlink{class_model_part}{Model\+Part}} \texorpdfstring{$\ast$}{*}child)
+\item 
+\Hypertarget{class_model_part_a8a0879ffab6883599dd81ea91b263e97}\label{class_model_part_a8a0879ffab6883599dd81ea91b263e97} 
+vtk\+Smart\+Pointer$<$ vtk\+Poly\+Data $>$ {\bfseries get\+Poly\+Data} () const
+\item 
+\Hypertarget{class_model_part_a1d11e062eb2b166574c458e992ea6009}\label{class_model_part_a1d11e062eb2b166574c458e992ea6009} 
+void {\bfseries apply\+Clip\+Filter} (bool enable, double origin\mbox{[}3\mbox{]}, double normal\mbox{[}3\mbox{]})
+\item 
+\Hypertarget{class_model_part_a3c5db035d08a01237db646c1cc3814be}\label{class_model_part_a3c5db035d08a01237db646c1cc3814be} 
+void {\bfseries apply\+Shrink\+Filter} (bool enable, double factor)
+\item 
+\Hypertarget{class_model_part_ab68c5a439b12791d22094c2b3bbb3650}\label{class_model_part_ab68c5a439b12791d22094c2b3bbb3650} 
+bool {\bfseries is\+Clip\+Filter\+Enabled} () const
+\item 
+\Hypertarget{class_model_part_a0cae0cf9dc6db59b356faef1eda9c37a}\label{class_model_part_a0cae0cf9dc6db59b356faef1eda9c37a} 
+bool {\bfseries is\+Shrink\+Filter\+Enabled} () const
+\item 
+\Hypertarget{class_model_part_afcdc4e9713166beb72202889eafaad76}\label{class_model_part_afcdc4e9713166beb72202889eafaad76} 
+bool {\bfseries has\+Original\+Data} () const
+\item 
+\Hypertarget{class_model_part_ac656d21fc49536e98d0fabc380a237f4}\label{class_model_part_ac656d21fc49536e98d0fabc380a237f4} 
+void {\bfseries store\+Original\+Data} ()
+\item 
+\Hypertarget{class_model_part_a4de48af1e860e197306566c07aa7c24b}\label{class_model_part_a4de48af1e860e197306566c07aa7c24b} 
+vtk\+Smart\+Pointer$<$ vtk\+Poly\+Data $>$ {\bfseries get\+Original\+Poly\+Data} () const
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Model\+Part.\+h\item 
+Model\+Part.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,114 @@
+\doxysection{mainwindow.\+h}
+\hypertarget{mainwindow_8h_source}{}\label{mainwindow_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MAINWINDOW\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MAINWINDOW\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QMainWindow>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QTreeView>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <QFile>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <QFileDialog>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <QColor>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}skyboxutils.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_model_part_list_8h}{ModelPartList.h}}"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}ModelPart.h"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}VRRenderThread.h"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <QVTKOpenGLNativeWidget.h>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <vtkSmartPointer.h>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <vtkRenderer.h>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <vtkGenericOpenGLRenderWindow.h>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <vtkActor.h>}\ \ \textcolor{comment}{//\ For\ gridActor}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <vtkLight.h>}\ \ \textcolor{comment}{//\ For\ light}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <QTimer>}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{comment}{//\ For\ BackgroundDialog}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ "{}backgrounddialog.h"{}}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <vtkImageReader2Factory.h>}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <vtkImageReader2.h>}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <vtkImageData.h>}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ <vtkTexture.h>}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ <vtkPlaneSource.h>}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ <vtkTexturedActor2D.h>}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{comment}{//\ For\ filters}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ <vtkClipDataSet.h>}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ <vtkShrinkFilter.h>}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ <vtkPlane.h>}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ <vtkGeometryFilter.h>}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ <vtkSkybox.h>}\ \textcolor{comment}{//\ Include\ for\ skybox}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ QT\_BEGIN\_NAMESPACE}
+\DoxyCodeLine{00039\ \textcolor{keyword}{namespace\ }Ui\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{class\ }MainWindow;}
+\DoxyCodeLine{00041\ \}}
+\DoxyCodeLine{00042\ QT\_END\_NAMESPACE}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{class\ }MainWindow\ :\ \textcolor{keyword}{public}\ QMainWindow}
+\DoxyCodeLine{00045\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00049\ \ \ \ \ MainWindow(QWidget*\ parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00050\ \ \ \ \ \string~MainWindow();}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{keyword}{public}\ slots:}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{void}\ handleTreeClicked();}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_actionOpen\_File\_triggered();}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{void}\ openFile();}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ showTreeContextMenu(\textcolor{keyword}{const}\ QPoint\&\ pos);}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_actionItemOptions\_triggered();}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{void}\ updateRender();}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{void}\ toggleTreeView();}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{void}\ updateRenderFromTree(\textcolor{keyword}{const}\ QModelIndex\&\ index);}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{void}\ onLightIntensityChanged(\textcolor{keywordtype}{int}\ value);}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}\ startVR();}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{void}\ stopVR();}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{void}\ onLoadSkyboxClicked();\ \ \textcolor{comment}{//\ Skybox\ loading\ function}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ signals:}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{void}\ statusUpdateMessage(\textcolor{keyword}{const}\ QString\&\ message,\ \textcolor{keywordtype}{int}\ timeout);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{keyword}{private}\ slots:}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{void}\ onDeleteRequested();}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{void}\ onBackgroundButtonClicked();}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{void}\ setCustomImageBackground(\textcolor{keyword}{const}\ QString\&\ imagePath);}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{void}\ setSolidColorBackground(\textcolor{keyword}{const}\ QColor\&\ color);}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{void}\ onClipFilterCheckboxChanged(\textcolor{keywordtype}{int}\ state);}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{void}\ onShrinkFilterCheckboxChanged(\textcolor{keywordtype}{int}\ state);}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{void}\ updateVRRenderer();}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{void}\ updateVRBackground(\textcolor{keyword}{const}\ QColor\&\ color);}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_actionDarkMode\_toggled(\textcolor{keywordtype}{bool}\ checked);}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{comment}{//\ New\ for\ rotation\ feature}}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{void}\ onRotationSpeedChanged(\textcolor{keywordtype}{int}\ value);}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{void}\ rotateModels();}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{void}\ rotatePartRecursive(\mbox{\hyperlink{class_model_part}{ModelPart}}*\ part,\ \textcolor{keywordtype}{int}\ speed);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00088\ \ \ \ \ Ui::MainWindow*\ ui;}
+\DoxyCodeLine{00089\ \ \ \ \ \mbox{\hyperlink{class_model_part_list}{ModelPartList}}*\ partList;}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ vtkSmartPointer<vtkRenderer>\ renderer;}
+\DoxyCodeLine{00092\ \ \ \ \ vtkSmartPointer<vtkGenericOpenGLRenderWindow>\ renderWindow;}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ vtkSmartPointer<vtkActor>\ gridActor;}
+\DoxyCodeLine{00095\ \ \ \ \ vtkSmartPointer<vtkLight>\ light;}
+\DoxyCodeLine{00096\ \ \ \ \ vtkSmartPointer<vtkTexturedActor2D>\ backgroundActor;}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \mbox{\hyperlink{class_v_r_render_thread}{VRRenderThread}}*\ vrThread\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{void}\ sendPartRecursive(\mbox{\hyperlink{class_model_part}{ModelPart}}*\ part);}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{comment}{//\ New\ for\ rotation\ feature}}
+\DoxyCodeLine{00102\ \ \ \ \ QTimer*\ rotationTimer\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{int}\ rotationSpeed\ =\ 0;}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ vtkSmartPointer<vtkSkybox>\ skybox;}
+\DoxyCodeLine{00106\ \ \ \ \ QString\ m\_darkQss;}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{void}\ loadDarkStyleSheet();}
+\DoxyCodeLine{00108\ \};}
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MAINWINDOW\_H}}
+
+\end{DoxyCode}

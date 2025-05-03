@@ -1,0 +1,44 @@
+\doxysection{optiondialog.\+h}
+\hypertarget{optiondialog_8h_source}{}\label{optiondialog_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ OPTIONDIALOG\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ OPTIONDIALOG\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QDialog>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QColor>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}ModelPart.h"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }Ui\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }OptionDialog;}
+\DoxyCodeLine{00010\ \}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }OptionDialog\ :\ \textcolor{keyword}{public}\ QDialog}
+\DoxyCodeLine{00013\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{explicit}\ OptionDialog(QWidget\ *parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00018\ \ \ \ \ \string~OptionDialog();}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{comment}{//\ Functions\ to\ set/get\ data\ from\ the\ dialog}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ getModelPartData(QString\ \&name,\ QColor\ \&color,\ \textcolor{keywordtype}{bool}\ \&visible)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ setModelPart(\mbox{\hyperlink{class_model_part}{ModelPart}}\ *part);}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ accept()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ updateColorButton();}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ signals:}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ deleteRequested();}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{private}\ slots:}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ onColorButtonClicked();}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ onDeleteButtonClicked();\ \ \textcolor{comment}{//\ Slot\ for\ delete\ button\ click}}
+\DoxyCodeLine{00033\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00034\ \ \ \ \ Ui::OptionDialog\ *ui;}
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{class_model_part}{ModelPart}}\ *currentPart;}
+\DoxyCodeLine{00036\ \ \ \ \ QColor\ currentColor;}
+\DoxyCodeLine{00037\ \};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ OPTIONDIALOG\_H}}
+
+\end{DoxyCode}
