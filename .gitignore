@@ -16,6 +16,7 @@ _deps
 *.cmake
 *.conan
 build/
+latex/
 
 ### CMake Patch ###
 CMakeUserPresets.json
