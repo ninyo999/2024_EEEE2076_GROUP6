@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
@@ -45,19 +48,62 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_3">
       <item>
-       <widget class="QLabel" name="label">
+       <widget class="QPushButton" name="toggleTreeViewButton">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+  background-color:#DFD0B8;
+  color: black;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+}
+QPushButton:hover {
+  background-color: #393E46;
+}
+</string>
+        </property>
         <property name="text">
-         <string>Light Intensity</string>
+         <string>Hide Tree View</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QSlider" name="horizontalSlider">
-        <property name="maximum">
-         <number>100</number>
+       <widget class="QPushButton" name="backgroundButton">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+  background-color:#DFD0B8;
+  color: black;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+}
+QPushButton:hover {
+  background-color: #393E46;
+}
+</string>
         </property>
-        <property name="orientation">
-         <enum>Qt::Orientation::Horizontal</enum>
+        <property name="text">
+         <string>Background</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="SkyboxButton">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+  background-color:#DFD0B8;
+  color: black;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+}
+QPushButton:hover {
+  background-color: #393E46;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>Skybox</string>
         </property>
        </widget>
       </item>
@@ -75,55 +121,20 @@
        </spacer>
       </item>
       <item>
-       <widget class="QLabel" name="label_2">
-        <property name="text">
-         <string>Rotation Speed</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QSlider" name="horizontalSlider_2">
-        <property name="maximum">
-         <number>50</number>
-        </property>
-        <property name="orientation">
-         <enum>Qt::Orientation::Horizontal</enum>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <spacer name="horizontalSpacer_3">
-        <property name="orientation">
-         <enum>Qt::Orientation::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_2">
-      <item>
-       <widget class="QPushButton" name="toggleTreeViewButton">
-        <property name="text">
-         <string>Hide Tree View</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="backgroundButton">
-        <property name="text">
-         <string>Background</string>
-        </property>
-       </widget>
-      </item>
-      <item>
        <widget class="QPushButton" name="startVRButton">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+  background-color:#DFD0B8;
+  color: black;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+}
+QPushButton:hover {
+  background-color: #393E46;
+}
+</string>
+        </property>
         <property name="text">
          <string>Start VR</string>
         </property>
@@ -137,6 +148,19 @@
       </item>
       <item>
        <widget class="QPushButton" name="stopVRButton">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+  background-color:#DFD0B8;
+  color: black;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+}
+QPushButton:hover {
+  background-color: #393E46;
+}
+</string>
+        </property>
         <property name="text">
          <string>Stop VR</string>
         </property>
@@ -148,10 +172,122 @@
         </property>
        </widget>
       </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
-       <widget class="QPushButton" name="SkyboxButton">
+       <widget class="QLabel" name="label">
         <property name="text">
-         <string>Skybox</string>
+         <string>Light Intensity</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSlider" name="horizontalSlider">
+        <property name="styleSheet">
+         <string notr="true">/* Horizontal Slider Groove (track) */
+QSlider::groove:horizontal {
+    background: #948979;       /* track background */
+    height: 3px;               /* track thickness */
+    border-radius: 3px;
+}
+
+/* Filled (sub-page) portion to the left of the handle */
+QSlider::sub-page:horizontal {
+    background: #393E46;       /* accent color */
+    border-radius: 3px;
+}
+
+/* Unfilled (add-page) portion to the right of the handle */
+QSlider::add-page:horizontal {
+    background: #948979;
+    border-radius: 3px;
+}
+
+/* The Handle (thumb) */
+QSlider::handle:horizontal {
+    background: #DFD0B8;       /* lightest for contrast */
+    border: 1px solid #948979; /* subtle border */
+    width: 14px;
+    height: 14px;
+    margin: -4px 0;            /* center it on the groove */
+ 
+}
+
+/* Handle hover/pressed states */
+QSlider::handle:horizontal:hover {
+    background: #DFD0B8;
+    border: 1px solid #DFD0B8;
+}
+QSlider::handle:horizontal:pressed {
+    background: #DFD0B8;
+    border: 2px solid #948979;
+}</string>
+        </property>
+        <property name="maximum">
+         <number>100</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Orientation::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>Drift animation</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSlider" name="horizontalSlider_2">
+        <property name="styleSheet">
+         <string notr="true">/* Horizontal Slider Groove (track) */
+QSlider::groove:horizontal {
+    background: #948979;       /* track background */
+    height: 3px;               /* track thickness */
+    border-radius: 3px;
+}
+
+/* Filled (sub-page) portion to the left of the handle */
+QSlider::sub-page:horizontal {
+    background: #393E46;       /* accent color */
+    border-radius: 3px;
+}
+
+/* Unfilled (add-page) portion to the right of the handle */
+QSlider::add-page:horizontal {
+    background: #948979;
+    border-radius: 3px;
+}
+
+/* The Handle (thumb) */
+QSlider::handle:horizontal {
+    background: #DFD0B8;       /* lightest for contrast */
+    border: 1px solid #948979; /* subtle border */
+    width: 14px;
+    height: 14px;
+    margin: -4px 0;            /* center it on the groove */
+ 
+}
+
+/* Handle hover/pressed states */
+QSlider::handle:horizontal:hover {
+    background: #DFD0B8;
+    border: 1px solid #DFD0B8;
+}
+QSlider::handle:horizontal:pressed {
+    background: #DFD0B8;
+    border: 2px solid #948979;
+}
+</string>
+        </property>
+        <property name="maximum">
+         <number>50</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Orientation::Horizontal</enum>
         </property>
        </widget>
       </item>
@@ -171,18 +307,35 @@
      </layout>
     </item>
     <item>
-     <widget class="QCheckBox" name="clipFilterCheckBox">
-      <property name="text">
-       <string>clip filter</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QCheckBox" name="shrinkFilterCheckBox">
-      <property name="text">
-       <string>shrink filter</string>
-      </property>
-     </widget>
+     <layout class="QHBoxLayout" name="horizontalLayout_4">
+      <item>
+       <widget class="QCheckBox" name="clipFilterCheckBox">
+        <property name="text">
+         <string>clip filter</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="shrinkFilterCheckBox">
+        <property name="text">
+         <string>shrink filter</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_4">
+        <property name="orientation">
+         <enum>Qt::Orientation::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
     </item>
    </layout>
   </widget>
@@ -197,9 +350,10 @@
    </property>
    <widget class="QMenu" name="menuFile">
     <property name="title">
-     <string>File</string>
+     <string>Menu</string>
     </property>
     <addaction name="actionOpen_File"/>
+    <addaction name="actionDarkMode"/>
    </widget>
    <addaction name="menuFile"/>
   </widget>
@@ -244,7 +398,7 @@
      <normaloff>:/icons/help.png</normaloff>:/icons/help.png</iconset>
    </property>
    <property name="text">
-    <string>Properties</string>
+    <string>Edit Properties</string>
    </property>
    <property name="toolTip">
     <string>Properties</string>
@@ -253,6 +407,21 @@
     <font>
      <family>Arial</family>
     </font>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionDarkMode">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/stopVR.png</normaloff>:/icons/stopVR.png</iconset>
+   </property>
+   <property name="text">
+    <string>Dark Mode</string>
    </property>
    <property name="menuRole">
     <enum>QAction::MenuRole::NoRole</enum>

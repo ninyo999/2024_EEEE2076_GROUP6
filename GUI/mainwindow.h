@@ -60,8 +60,10 @@ public slots:
     void updateRenderFromTree(const QModelIndex& index);
     void onLightIntensityChanged(int value);
     void startVR();
-	void stopVR();
+    void stopVR();
     void onLoadSkyboxClicked();  // Skybox loading function
+
+
 
 signals:
     void statusUpdateMessage(const QString& message, int timeout);
@@ -74,7 +76,8 @@ private slots:
     void onClipFilterCheckboxChanged(int state);
     void onShrinkFilterCheckboxChanged(int state);
     void updateVRRenderer();
-	void updateVRBackground(const QColor& color);
+    void updateVRBackground(const QColor& color);
+    void on_actionDarkMode_toggled(bool checked);
 
     // New for rotation feature
     void onRotationSpeedChanged(int value);
@@ -99,7 +102,8 @@ private:
     QTimer* rotationTimer = nullptr;
     int rotationSpeed = 0;
 
-    vtkSmartPointer<vtkSkybox> skybox;  // Added skybox member to render skybox in the scene
+    vtkSmartPointer<vtkSkybox> skybox;
+    QString m_darkQss;
+    void loadDarkStyleSheet();
 };
-
 #endif // MAINWINDOW_H
