@@ -77,7 +77,6 @@ private slots:
     void onShrinkFilterCheckboxChanged(int state);
     void updateVRRenderer();
     void updateVRBackground(const QColor& color);
-    void on_actionDarkMode_toggled(bool checked);
 
     // New for rotation feature
     void onRotationSpeedChanged(int value);
@@ -103,7 +102,6 @@ private:
     int rotationSpeed = 0;
 
     vtkSmartPointer<vtkSkybox> skybox;
-    QString m_darkQss;
-    void loadDarkStyleSheet();
+
 };
 #endif // MAINWINDOW_H

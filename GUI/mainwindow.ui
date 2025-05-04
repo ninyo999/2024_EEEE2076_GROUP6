@@ -310,6 +310,52 @@ QSlider::handle:horizontal:pressed {
      <layout class="QHBoxLayout" name="horizontalLayout_4">
       <item>
        <widget class="QCheckBox" name="clipFilterCheckBox">
+        <property name="styleSheet">
+         <string notr="true">/* -- Checkbox Label -- */
+QCheckBox {
+    spacing: 6px;                  /* gap between box &amp; text */
+    color: black;                /* label color */
+    ￼font: 13px;                   /* optional: adjust text size */
+}
+
+/* -- Indicator (the square “box”) -- */
+QCheckBox::indicator {
+    width: 13px;
+    height: 13px;
+    border: 1px solid black;     /* mid-tone border */
+    border-radius: 2px;
+    
+}
+
+/* Hover over the box */
+QCheckBox::indicator:hover {
+    border: 1px solid #DFD0B8;     /* lighten border on hover */
+}
+
+/* Checked state */
+QCheckBox::indicator:checked {
+    background: #948979;           /* accent fill */
+    border: 1px solid #948979;     
+}
+
+/* Checked + hover */
+QCheckBox::indicator:checked:hover {
+    background: #DFD0B8;           /* even lighter on hover */
+    border: 1px solid #DFD0B8;
+}
+
+/* Disabled state */
+QCheckBox::indicator:disabled {
+    background: #222831;
+    border: 1px solid #393E46;
+}
+QCheckBox::indicator:checked:disabled {
+    background: #393E46;
+    border: 1px solid #393E46;
+    opacity: 0.6;
+}
+</string>
+        </property>
         <property name="text">
          <string>clip filter</string>
         </property>
@@ -317,6 +363,52 @@ QSlider::handle:horizontal:pressed {
       </item>
       <item>
        <widget class="QCheckBox" name="shrinkFilterCheckBox">
+        <property name="styleSheet">
+         <string notr="true">/* -- Checkbox Label -- */
+QCheckBox {
+    spacing: 6px;                  /* gap between box &amp; text */
+    color: black;                /* label color */
+    ￼font: 13px;                   /* optional: adjust text size */
+}
+
+/* -- Indicator (the square “box”) -- */
+QCheckBox::indicator {
+    width: 13px;
+    height: 13px;
+    border: 1px solid black;     /* mid-tone border */
+    border-radius: 2px;
+    
+}
+
+/* Hover over the box */
+QCheckBox::indicator:hover {
+    border: 1px solid #DFD0B8;     /* lighten border on hover */
+}
+
+/* Checked state */
+QCheckBox::indicator:checked {
+    background: #948979;           /* accent fill */
+    border: 1px solid #948979;     
+}
+
+/* Checked + hover */
+QCheckBox::indicator:checked:hover {
+    background: #DFD0B8;           /* even lighter on hover */
+    border: 1px solid #DFD0B8;
+}
+
+/* Disabled state */
+QCheckBox::indicator:disabled {
+    background: #222831;
+    border: 1px solid #393E46;
+}
+QCheckBox::indicator:checked:disabled {
+    background: #393E46;
+    border: 1px solid #393E46;
+    opacity: 0.6;
+}
+</string>
+        </property>
         <property name="text">
          <string>shrink filter</string>
         </property>
@@ -353,7 +445,6 @@ QSlider::handle:horizontal:pressed {
      <string>Menu</string>
     </property>
     <addaction name="actionOpen_File"/>
-    <addaction name="actionDarkMode"/>
    </widget>
    <addaction name="menuFile"/>
   </widget>
@@ -407,21 +498,6 @@ QSlider::handle:horizontal:pressed {
     <font>
      <family>Arial</family>
     </font>
-   </property>
-   <property name="menuRole">
-    <enum>QAction::MenuRole::NoRole</enum>
-   </property>
-  </action>
-  <action name="actionDarkMode">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="icon">
-    <iconset resource="icons.qrc">
-     <normaloff>:/icons/stopVR.png</normaloff>:/icons/stopVR.png</iconset>
-   </property>
-   <property name="text">
-    <string>Dark Mode</string>
    </property>
    <property name="menuRole">
     <enum>QAction::MenuRole::NoRole</enum>
