@@ -195,6 +195,12 @@ Public Member Functions</h2></td></tr>
 <p>Constructs the <a class="el" href="classBackgroundDialog.html" title="Dialog for selecting background settings.">BackgroundDialog</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">parent</td><td>Pointer to the parent widget.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Initializes UI components, connects signals to slots, and sets default background mode. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramname">parent</td><td>Pointer to the parent widget. </td></tr>
   </table>
   </dd>
@@ -219,7 +225,10 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the file path of the selected garage image. </p>
-<dl class="section return"><dt>Returns</dt><dd>The image file path as a QString. </dd></dl>
+<p>Returns the file path of the selected background image.</p>
+<dl class="section return"><dt>Returns</dt><dd>The image file path as a QString.</dd>
+<dd>
+File path as QString. </dd></dl>
 
 </div>
 </div>
@@ -239,7 +248,10 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the selected color. </p>
-<dl class="section return"><dt>Returns</dt><dd>The selected QColor. </dd></dl>
+<p>Returns the selected background color.</p>
+<dl class="section return"><dt>Returns</dt><dd>The selected QColor.</dd>
+<dd>
+The currently selected QColor. </dd></dl>
 
 </div>
 </div>
@@ -259,7 +271,10 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the selected background type. </p>
-<dl class="section return"><dt>Returns</dt><dd>The selected BackgroundType. </dd></dl>
+<p>Returns the selected background type (solid color or image).</p>
+<dl class="section return"><dt>Returns</dt><dd>The selected BackgroundType.</dd>
+<dd>
+The selected BackgroundType enum value. </dd></dl>
 
 </div>
 </div>
