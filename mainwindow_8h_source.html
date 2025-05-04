@@ -167,68 +167,56 @@ $(document).ready(function(){initNavTree('mainwindow_8h_source.html',''); initRe
 <div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="classMainWindow.html#ae0970ded1f10ce117b3f31e799fa895e">onLightIntensityChanged</a>(<span class="keywordtype">int</span> value);</div>
 <div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
 <div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="classMainWindow.html#a0c20dc8be5b7925c0e544a72fc17dfa7">startVR</a>();</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
 <div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <span class="keywordtype">void</span> stopVR();</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="classMainWindow.html#a3fbcc9909cf51a1f8671f495dd493a56">stopVR</a>();</div>
 <div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <span class="keywordtype">void</span> onLoadSkyboxClicked();</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>=======</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    <span class="keywordtype">void</span> stopVR();</div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    <span class="keywordtype">void</span> onLoadSkyboxClicked();  <span class="comment">// Skybox loading function</span></div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>&gt;&gt;&gt;&gt;&gt;&gt;&gt; aa1abbf0f105ed0cac03f9bf88362994a1e75d43</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>signals:</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno"><a class="line" href="classMainWindow.html#a86443ea744fda3e9bad328c2fd1c3d6b">  147</a></span>    <span class="keywordtype">void</span> <a class="code hl_signal" href="classMainWindow.html#a86443ea744fda3e9bad328c2fd1c3d6b">statusUpdateMessage</a>(<span class="keyword">const</span> QString&amp; message, <span class="keywordtype">int</span> timeout);</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="classMainWindow.html#a3cb4d5fdfdfa9d9175581eb5b85a7a1f">onLoadSkyboxClicked</a>();</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>signals:</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno"><a class="line" href="classMainWindow.html#a86443ea744fda3e9bad328c2fd1c3d6b">  141</a></span>    <span class="keywordtype">void</span> <a class="code hl_signal" href="classMainWindow.html#a86443ea744fda3e9bad328c2fd1c3d6b">statusUpdateMessage</a>(<span class="keyword">const</span> QString&amp; message, <span class="keywordtype">int</span> timeout);</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span><span class="keyword">private</span> slots:</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    <span class="keywordtype">void</span> onDeleteRequested();</div>
 <div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="keyword">private</span> slots:</div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    <span class="keywordtype">void</span> onDeleteRequested();</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    <span class="keywordtype">void</span> onBackgroundButtonClicked();</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    <span class="keywordtype">void</span> onBackgroundButtonClicked();</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    <span class="keywordtype">void</span> setCustomImageBackground(<span class="keyword">const</span> QString&amp; imagePath);</div>
 <div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    <span class="keywordtype">void</span> setCustomImageBackground(<span class="keyword">const</span> QString&amp; imagePath);</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    <span class="keywordtype">void</span> setSolidColorBackground(<span class="keyword">const</span> QColor&amp; color);</div>
 <div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    <span class="keywordtype">void</span> setSolidColorBackground(<span class="keyword">const</span> QColor&amp; color);</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    <span class="keywordtype">void</span> onClipFilterCheckboxChanged(<span class="keywordtype">int</span> state);</div>
 <div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    <span class="keywordtype">void</span> onClipFilterCheckboxChanged(<span class="keywordtype">int</span> state);</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    <span class="keywordtype">void</span> onShrinkFilterCheckboxChanged(<span class="keywordtype">int</span> state);</div>
 <div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    <span class="keywordtype">void</span> onShrinkFilterCheckboxChanged(<span class="keywordtype">int</span> state);</div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span> </div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    <span class="keywordtype">void</span> updateVRRenderer();</div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    <span class="keywordtype">void</span> updateVRBackground(<span class="keyword">const</span> QColor&amp; color);</div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    <span class="keywordtype">void</span> updateVRBackground(<span class="keyword">const</span> QColor&amp; color);</div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span> </div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>    <span class="keywordtype">void</span> onRotationSpeedChanged(<span class="keywordtype">int</span> value);</div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    <span class="keywordtype">void</span> rotateModels();</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    <span class="keywordtype">void</span> updateVRRenderer();</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span> </div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    <span class="keywordtype">void</span> updateVRBackground(<span class="keyword">const</span> QColor&amp; color);</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    <span class="keywordtype">void</span> onRotationSpeedChanged(<span class="keywordtype">int</span> value);</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span> </div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    <span class="keywordtype">void</span> rotateModels();</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span> </div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    <span class="keywordtype">void</span> rotatePartRecursive(<a class="code hl_class" href="classModelPart.html">ModelPart</a>* part, <span class="keywordtype">int</span> speed);</div>
 <div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span> </div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    <span class="keywordtype">void</span> rotatePartRecursive(<a class="code hl_class" href="classModelPart.html">ModelPart</a>* part, <span class="keywordtype">int</span> speed);</div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span> </div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    Ui::MainWindow* ui;  </div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>    <a class="code hl_class" href="classModelPartList.html">ModelPartList</a>* partList;  </div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>    vtkSmartPointer&lt;vtkRenderer&gt; renderer;  </div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>    vtkSmartPointer&lt;vtkGenericOpenGLRenderWindow&gt; renderWindow;  </div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>    vtkSmartPointer&lt;vtkActor&gt; gridActor;  </div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>    vtkSmartPointer&lt;vtkLight&gt; light;  </div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    vtkSmartPointer&lt;vtkTexturedActor2D&gt; backgroundActor;  </div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    <a class="code hl_class" href="classVRRenderThread.html">VRRenderThread</a>* vrThread = <span class="keyword">nullptr</span>;  </div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    <span class="keywordtype">void</span> sendPartRecursive(<a class="code hl_class" href="classModelPart.html">ModelPart</a>* part);</div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span> </div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    QTimer* rotationTimer = <span class="keyword">nullptr</span>;  </div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    <span class="keywordtype">int</span> rotationSpeed = 0;  </div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>    vtkSmartPointer&lt;vtkSkybox&gt; skybox;  </div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>};</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    Ui::MainWindow* ui;  </div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>    <a class="code hl_class" href="classModelPartList.html">ModelPartList</a>* partList;  </div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    vtkSmartPointer&lt;vtkRenderer&gt; renderer;  </div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    vtkSmartPointer&lt;vtkGenericOpenGLRenderWindow&gt; renderWindow;  </div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>    vtkSmartPointer&lt;vtkActor&gt; gridActor;  </div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    vtkSmartPointer&lt;vtkLight&gt; light;  </div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>    vtkSmartPointer&lt;vtkTexturedActor2D&gt; backgroundActor;  </div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>    <a class="code hl_class" href="classVRRenderThread.html">VRRenderThread</a>* vrThread = <span class="keyword">nullptr</span>;  </div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    <span class="keywordtype">void</span> sendPartRecursive(<a class="code hl_class" href="classModelPart.html">ModelPart</a>* part);</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span> </div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>    QTimer* rotationTimer = <span class="keyword">nullptr</span>;  </div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>    <span class="keywordtype">int</span> rotationSpeed = 0;  </div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    vtkSmartPointer&lt;vtkSkybox&gt; skybox;  </div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>};</div>
 </div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>=======</div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    vtkSmartPointer&lt;vtkSkybox&gt; skybox;</div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>&gt;&gt;&gt;&gt;&gt;&gt;&gt; aa1abbf0f105ed0cac03f9bf88362994a1e75d43</div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span> </div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>};</div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span><span class="preprocessor">#endif </span><span class="comment">// MAINWINDOW_H</span></div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span> </div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span><span class="preprocessor">#endif </span><span class="comment">// MAINWINDOW_H</span></div>
 <div class="ttc" id="aModelPartList_8h_html"><div class="ttname"><a href="ModelPartList_8h.html">ModelPartList.h</a></div></div>
 <div class="ttc" id="aModelPart_8h_html"><div class="ttname"><a href="ModelPart_8h.html">ModelPart.h</a></div><div class="ttdoc">Defines the ModelPart class used to represent and manage components of a 3D model in a tree structure...</div></div>
 <div class="ttc" id="abackgrounddialog_8h_html"><div class="ttname"><a href="backgrounddialog_8h.html">backgrounddialog.h</a></div></div>
@@ -238,7 +226,9 @@ $(document).ready(function(){initNavTree('mainwindow_8h_source.html',''); initRe
 <div class="ttc" id="aclassMainWindow_html_a288b768c3c21a9171bdc56fe845ece8b"><div class="ttname"><a href="classMainWindow.html#a288b768c3c21a9171bdc56fe845ece8b">MainWindow::openFile</a></div><div class="ttdeci">void openFile()</div><div class="ttdoc">Opens a file dialog to load a model.</div><div class="ttdef"><b>Definition</b> mainwindow.cpp:228</div></div>
 <div class="ttc" id="aclassMainWindow_html_a36c53ff3feb21842dfaf965b77bc73db"><div class="ttname"><a href="classMainWindow.html#a36c53ff3feb21842dfaf965b77bc73db">MainWindow::toggleTreeView</a></div><div class="ttdeci">void toggleTreeView()</div><div class="ttdoc">Toggles the visibility of the tree view.</div><div class="ttdef"><b>Definition</b> mainwindow.cpp:371</div></div>
 <div class="ttc" id="aclassMainWindow_html_a3a4866823ec0a9148c03ade962e65cf3"><div class="ttname"><a href="classMainWindow.html#a3a4866823ec0a9148c03ade962e65cf3">MainWindow::on_actionOpen_File_triggered</a></div><div class="ttdeci">void on_actionOpen_File_triggered()</div><div class="ttdoc">Triggered when the &quot;Open File&quot; action is selected.</div><div class="ttdef"><b>Definition</b> mainwindow.cpp:222</div></div>
+<div class="ttc" id="aclassMainWindow_html_a3cb4d5fdfdfa9d9175581eb5b85a7a1f"><div class="ttname"><a href="classMainWindow.html#a3cb4d5fdfdfa9d9175581eb5b85a7a1f">MainWindow::onLoadSkyboxClicked</a></div><div class="ttdeci">void onLoadSkyboxClicked()</div><div class="ttdoc">Loads a skybox texture into the scene.</div><div class="ttdef"><b>Definition</b> mainwindow.cpp:414</div></div>
 <div class="ttc" id="aclassMainWindow_html_a3efc38e6be895f53a3f973906e4174b8"><div class="ttname"><a href="classMainWindow.html#a3efc38e6be895f53a3f973906e4174b8">MainWindow::updateRenderFromTree</a></div><div class="ttdeci">void updateRenderFromTree(const QModelIndex &amp;index)</div><div class="ttdoc">Updates rendering based on the selected item in the tree view.</div><div class="ttdef"><b>Definition</b> mainwindow.cpp:349</div></div>
+<div class="ttc" id="aclassMainWindow_html_a3fbcc9909cf51a1f8671f495dd493a56"><div class="ttname"><a href="classMainWindow.html#a3fbcc9909cf51a1f8671f495dd493a56">MainWindow::stopVR</a></div><div class="ttdeci">void stopVR()</div><div class="ttdoc">Stops VR rendering.</div><div class="ttdef"><b>Definition</b> mainwindow.cpp:570</div></div>
 <div class="ttc" id="aclassMainWindow_html_a7345876601becefc4bfba18e91873522"><div class="ttname"><a href="classMainWindow.html#a7345876601becefc4bfba18e91873522">MainWindow::showTreeContextMenu</a></div><div class="ttdeci">void showTreeContextMenu(const QPoint &amp;pos)</div><div class="ttdoc">Shows context menu when right-clicking on the tree view.</div><div class="ttdef"><b>Definition</b> mainwindow.cpp:276</div></div>
 <div class="ttc" id="aclassMainWindow_html_a86443ea744fda3e9bad328c2fd1c3d6b"><div class="ttname"><a href="classMainWindow.html#a86443ea744fda3e9bad328c2fd1c3d6b">MainWindow::statusUpdateMessage</a></div><div class="ttdeci">void statusUpdateMessage(const QString &amp;message, int timeout)</div><div class="ttdoc">Signal to update the status bar.</div></div>
 <div class="ttc" id="aclassMainWindow_html_aa2a5945f9c4bf90022f0a7ad3db34c49"><div class="ttname"><a href="classMainWindow.html#aa2a5945f9c4bf90022f0a7ad3db34c49">MainWindow::updateRender</a></div><div class="ttdeci">void updateRender()</div><div class="ttdoc">Updates the 3D render window.</div><div class="ttdef"><b>Definition</b> mainwindow.cpp:340</div></div>

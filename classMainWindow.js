@@ -6,10 +6,12 @@ var classMainWindow =
     [ "on_actionItemOptions_triggered", "classMainWindow.html#aa3e86f798258224dddea4be926bc879b", null ],
     [ "on_actionOpen_File_triggered", "classMainWindow.html#a3a4866823ec0a9148c03ade962e65cf3", null ],
     [ "onLightIntensityChanged", "classMainWindow.html#ae0970ded1f10ce117b3f31e799fa895e", null ],
+    [ "onLoadSkyboxClicked", "classMainWindow.html#a3cb4d5fdfdfa9d9175581eb5b85a7a1f", null ],
     [ "openFile", "classMainWindow.html#a288b768c3c21a9171bdc56fe845ece8b", null ],
     [ "showTreeContextMenu", "classMainWindow.html#a7345876601becefc4bfba18e91873522", null ],
     [ "startVR", "classMainWindow.html#a0c20dc8be5b7925c0e544a72fc17dfa7", null ],
     [ "statusUpdateMessage", "classMainWindow.html#a86443ea744fda3e9bad328c2fd1c3d6b", null ],
+    [ "stopVR", "classMainWindow.html#a3fbcc9909cf51a1f8671f495dd493a56", null ],
     [ "toggleTreeView", "classMainWindow.html#a36c53ff3feb21842dfaf965b77bc73db", null ],
     [ "updateRender", "classMainWindow.html#aa2a5945f9c4bf90022f0a7ad3db34c49", null ],
     [ "updateRenderFromTree", "classMainWindow.html#a3efc38e6be895f53a3f973906e4174b8", null ]

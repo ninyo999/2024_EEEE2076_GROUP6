@@ -140,41 +140,40 @@ $(document).ready(function(){initNavTree('vrrenderthread_8h_source.html',''); in
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="classVRRenderThread.html#a4e7125795136410a3fd29129c702e47b">   76</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classVRRenderThread.html#a4e7125795136410a3fd29129c702e47b">loadSkybox</a>(<span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; faceFilenames);</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="keyword">public</span> slots:</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keywordtype">void</span> setVRBackgroundColor(<span class="keyword">const</span> QColor&amp; color);</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>=======</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keywordtype">void</span> setVRBackgroundColor(<span class="keyword">const</span> QColor&amp; color);</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>&gt;&gt;&gt;&gt;&gt;&gt;&gt; aa1abbf0f105ed0cac03f9bf88362994a1e75d43</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classVRRenderThread.html#af5bbbaf8625fc42278476a43bf018661">run</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    vtkSmartPointer&lt;vtkOpenVRRenderWindow&gt; window; </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    vtkSmartPointer&lt;vtkOpenVRRenderWindowInteractor&gt; interactor; </div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    vtkSmartPointer&lt;vtkOpenVRRenderer&gt; renderer; </div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    vtkSmartPointer&lt;vtkOpenVRCamera&gt; camera; </div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    QMutex mutex; </div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    QWaitCondition condition; </div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    vtkSmartPointer&lt;vtkActorCollection&gt; actors; </div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    std::chrono::time_point&lt;std::chrono::steady_clock&gt; t_last; </div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="keywordtype">bool</span> endRender; </div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="keywordtype">double</span> rotateX; </div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keywordtype">double</span> rotateY; </div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keywordtype">double</span> rotateZ; </div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    vtkSmartPointer&lt;vtkSkybox&gt; skybox; </div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    vtkSmartPointer&lt;vtkLight&gt; light; </div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <span class="keywordtype">double</span> lightIntensity; </div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>};</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="classVRRenderThread.html#ae1679fed26b44e9fc1bb4ba9d93b56c3">setVRBackgroundColor</a>(<span class="keyword">const</span> QColor&amp; color);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classVRRenderThread.html#af5bbbaf8625fc42278476a43bf018661">run</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    vtkSmartPointer&lt;vtkOpenVRRenderWindow&gt; window; </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    vtkSmartPointer&lt;vtkOpenVRRenderWindowInteractor&gt; interactor; </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    vtkSmartPointer&lt;vtkOpenVRRenderer&gt; renderer; </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    vtkSmartPointer&lt;vtkOpenVRCamera&gt; camera; </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    QMutex mutex; </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    QWaitCondition condition; </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    vtkSmartPointer&lt;vtkActorCollection&gt; actors; </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    std::chrono::time_point&lt;std::chrono::steady_clock&gt; t_last; </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keywordtype">bool</span> endRender; </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="keywordtype">double</span> rotateX; </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keywordtype">double</span> rotateY; </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="keywordtype">double</span> rotateZ; </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    vtkSmartPointer&lt;vtkSkybox&gt; skybox; </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    vtkSmartPointer&lt;vtkLight&gt; light; </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="keywordtype">double</span> lightIntensity; </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>};</div>
 </div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="preprocessor">#endif </span><span class="comment">// VR_RENDER_THREAD_H</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="preprocessor">#endif </span><span class="comment">// VR_RENDER_THREAD_H</span></div>
 <div class="ttc" id="aclassVRRenderThread_html"><div class="ttname"><a href="classVRRenderThread.html">VRRenderThread</a></div><div class="ttdoc">A thread for managing VR rendering using VTK and OpenVR.</div><div class="ttdef"><b>Definition</b> vrrenderthread.h:32</div></div>
 <div class="ttc" id="aclassVRRenderThread_html_a17bb943e3b852339398cfbb7cb12cf13"><div class="ttname"><a href="classVRRenderThread.html#a17bb943e3b852339398cfbb7cb12cf13">VRRenderThread::addActorOffline</a></div><div class="ttdeci">void addActorOffline(vtkActor *actor)</div><div class="ttdoc">Adds an actor to the VR scene (before the thread starts).</div><div class="ttdef"><b>Definition</b> vrrenderthread.cpp:89</div></div>
 <div class="ttc" id="aclassVRRenderThread_html_a2fa57b06d1deb3cacb9bf2c142618b49"><div class="ttname"><a href="classVRRenderThread.html#a2fa57b06d1deb3cacb9bf2c142618b49">VRRenderThread::~VRRenderThread</a></div><div class="ttdeci">~VRRenderThread() override</div><div class="ttdoc">Destructor for VRRenderThread.</div><div class="ttdef"><b>Definition</b> vrrenderthread.cpp:69</div></div>
 <div class="ttc" id="aclassVRRenderThread_html_a4e7125795136410a3fd29129c702e47b"><div class="ttname"><a href="classVRRenderThread.html#a4e7125795136410a3fd29129c702e47b">VRRenderThread::loadSkybox</a></div><div class="ttdeci">void loadSkybox(const std::vector&lt; std::string &gt; &amp;faceFilenames)</div><div class="ttdoc">Loads a skybox cubemap for the VR scene.</div></div>
 <div class="ttc" id="aclassVRRenderThread_html_a887ba74b8a5b02f927e4564049b85ffb"><div class="ttname"><a href="classVRRenderThread.html#a887ba74b8a5b02f927e4564049b85ffb">VRRenderThread::Command</a></div><div class="ttdeci">enum VRRenderThread::@0 Command</div><div class="ttdoc">Rendering and control commands that can be issued to the VR thread.</div></div>
 <div class="ttc" id="aclassVRRenderThread_html_abbc905472309a2da473241a596e43813"><div class="ttname"><a href="classVRRenderThread.html#abbc905472309a2da473241a596e43813">VRRenderThread::issueCommand</a></div><div class="ttdeci">void issueCommand(int cmd, double value)</div><div class="ttdoc">Issues a command to the VR renderer.</div><div class="ttdef"><b>Definition</b> vrrenderthread.cpp:110</div></div>
+<div class="ttc" id="aclassVRRenderThread_html_ae1679fed26b44e9fc1bb4ba9d93b56c3"><div class="ttname"><a href="classVRRenderThread.html#ae1679fed26b44e9fc1bb4ba9d93b56c3">VRRenderThread::setVRBackgroundColor</a></div><div class="ttdeci">void setVRBackgroundColor(const QColor &amp;color)</div><div class="ttdoc">Sets the VR scene background color.</div><div class="ttdef"><b>Definition</b> vrrenderthread.cpp:251</div></div>
 <div class="ttc" id="aclassVRRenderThread_html_af5393c7e3267e22c69da6e0617296e3ca238b3c5fb3b7cb60cc688e20a00acd6e"><div class="ttname"><a href="classVRRenderThread.html#af5393c7e3267e22c69da6e0617296e3ca238b3c5fb3b7cb60cc688e20a00acd6e">VRRenderThread::END_RENDER</a></div><div class="ttdeci">@ END_RENDER</div><div class="ttdef"><b>Definition</b> vrrenderthread.h:40</div></div>
 <div class="ttc" id="aclassVRRenderThread_html_af5393c7e3267e22c69da6e0617296e3ca6156cf91874cc147ccd438696148a181"><div class="ttname"><a href="classVRRenderThread.html#af5393c7e3267e22c69da6e0617296e3ca6156cf91874cc147ccd438696148a181">VRRenderThread::ROTATE_Z</a></div><div class="ttdeci">@ ROTATE_Z</div><div class="ttdef"><b>Definition</b> vrrenderthread.h:43</div></div>
 <div class="ttc" id="aclassVRRenderThread_html_af5393c7e3267e22c69da6e0617296e3ca77d4292ea7b37cf3ef81d8c01d3459d6"><div class="ttname"><a href="classVRRenderThread.html#af5393c7e3267e22c69da6e0617296e3ca77d4292ea7b37cf3ef81d8c01d3459d6">VRRenderThread::ROTATE_Y</a></div><div class="ttdeci">@ ROTATE_Y</div><div class="ttdef"><b>Definition</b> vrrenderthread.h:42</div></div>

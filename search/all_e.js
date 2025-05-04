@@ -7,10 +7,12 @@ var searchData=
   ['setname_4',['setName',['../classModelPart.html#a2ce11d94c34c3570a15867fa08bb6be2',1,'ModelPart']]],
   ['setrenderer_5',['setRenderer',['../classModelPart.html#a83709e065b2dac2fec9ef4a777a22608',1,'ModelPart']]],
   ['setvisible_6',['setVisible',['../classModelPart.html#a4cfdee348fd6870756ce836f67b1ce75',1,'ModelPart']]],
-  ['showtreecontextmenu_7',['showTreeContextMenu',['../classMainWindow.html#a7345876601becefc4bfba18e91873522',1,'MainWindow']]],
-  ['skyboxutils_2eh_8',['skyboxutils.h',['../skyboxutils_8h.html',1,'']]],
-  ['solidcolor_9',['SolidColor',['../classBackgroundDialog.html#a5a8d4ee2c0c2b17397b69946f65ce890a0a80d29513d36da88b8e8e911540d653',1,'BackgroundDialog']]],
-  ['startvr_10',['startVR',['../classMainWindow.html#a0c20dc8be5b7925c0e544a72fc17dfa7',1,'MainWindow']]],
-  ['statusupdatemessage_11',['statusUpdateMessage',['../classMainWindow.html#a86443ea744fda3e9bad328c2fd1c3d6b',1,'MainWindow']]],
-  ['storeoriginaldata_12',['storeOriginalData',['../classModelPart.html#ac656d21fc49536e98d0fabc380a237f4',1,'ModelPart']]]
+  ['setvrbackgroundcolor_7',['setVRBackgroundColor',['../classVRRenderThread.html#ae1679fed26b44e9fc1bb4ba9d93b56c3',1,'VRRenderThread']]],
+  ['showtreecontextmenu_8',['showTreeContextMenu',['../classMainWindow.html#a7345876601becefc4bfba18e91873522',1,'MainWindow']]],
+  ['skyboxutils_2eh_9',['skyboxutils.h',['../skyboxutils_8h.html',1,'']]],
+  ['solidcolor_10',['SolidColor',['../classBackgroundDialog.html#a5a8d4ee2c0c2b17397b69946f65ce890a0a80d29513d36da88b8e8e911540d653',1,'BackgroundDialog']]],
+  ['startvr_11',['startVR',['../classMainWindow.html#a0c20dc8be5b7925c0e544a72fc17dfa7',1,'MainWindow']]],
+  ['statusupdatemessage_12',['statusUpdateMessage',['../classMainWindow.html#a86443ea744fda3e9bad328c2fd1c3d6b',1,'MainWindow']]],
+  ['stopvr_13',['stopVR',['../classMainWindow.html#a3fbcc9909cf51a1f8671f495dd493a56',1,'MainWindow']]],
+  ['storeoriginaldata_14',['storeOriginalData',['../classModelPart.html#ac656d21fc49536e98d0fabc380a237f4',1,'ModelPart']]]
 ];

@@ -6,5 +6,6 @@ var classVRRenderThread =
     [ "issueCommand", "classVRRenderThread.html#abbc905472309a2da473241a596e43813", null ],
     [ "loadSkybox", "classVRRenderThread.html#a4e7125795136410a3fd29129c702e47b", null ],
     [ "run", "classVRRenderThread.html#af5bbbaf8625fc42278476a43bf018661", null ],
+    [ "setVRBackgroundColor", "classVRRenderThread.html#ae1679fed26b44e9fc1bb4ba9d93b56c3", null ],
     [ "Command", "classVRRenderThread.html#a887ba74b8a5b02f927e4564049b85ffb", null ]
 ];
