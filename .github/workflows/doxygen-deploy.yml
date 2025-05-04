@@ -3,12 +3,12 @@ name: doxygen-deploy
 
 on:
   push:
-    branches: [ main ]    # Note: this needs to be set to your default branch
+    branches: [ master ]    # Note: this needs to be set to your default branch
                             # name (this might be "main" rather than "master"
 
 jobs:
-  # The job that will build worksheet 5
-  deploy-worksheet5:
+  # The job that will build VRCADProject
+  deploy-GUI:
 
     # Defines the operating system for the virtual computer
     runs-on: ubuntu-latest
@@ -25,7 +25,7 @@ jobs:
       run: sudo apt-get install -y doxygen
 
     - name: Run Doxygen
-      working-directory: ${{github.workspace}}/Worksheet5
+      working-directory: ${{github.workspace}}/GUI
       run: doxygen
 
     - name: Deploy
@@ -34,4 +34,4 @@ jobs:
         # The branch the action should deploy to.
         branch: gh-pages
         # The folder the action should deploy.
-        folder: ${{github.workspace}}/Worksheet5/html
+        folder: ${{github.workspace}}/GUI/html
