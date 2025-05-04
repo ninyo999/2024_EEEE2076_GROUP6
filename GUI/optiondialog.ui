@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Part Properties</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true"> background-color: #222831;  /* darkest gray */
+  color: #DFD0B8;             /* light text */</string>
+  </property>
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
     <rect>
@@ -21,6 +25,19 @@
      <width>341</width>
      <height>32</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+  background-color: #393E46;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+}
+QPushButton:hover {
+  background-color: #948979;
+}
+</string>
    </property>
    <property name="orientation">
     <enum>Qt::Orientation::Horizontal</enum>
@@ -49,7 +66,11 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="lineEdit"/>
+       <widget class="QLineEdit" name="lineEdit">
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>
@@ -64,14 +85,14 @@
       </item>
       <item>
        <widget class="QPushButton" name="colorButton">
-        <property name="text">
-         <string/>
-        </property>
         <property name="minimumSize">
          <size>
           <width>50</width>
           <height>30</height>
          </size>
+        </property>
+        <property name="text">
+         <string/>
         </property>
        </widget>
       </item>
@@ -86,6 +107,19 @@
     </item>
     <item>
      <widget class="QPushButton" name="deleteButton">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+  background-color: #393E46;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+}
+QPushButton:hover {
+  background-color: #948979;
+}
+</string>
+      </property>
       <property name="text">
        <string>Delete Part</string>
       </property>

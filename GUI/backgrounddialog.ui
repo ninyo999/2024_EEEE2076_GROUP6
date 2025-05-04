@@ -6,12 +6,16 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>300</width>
+    <width>304</width>
     <height>200</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Background Settings</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"> background-color: #222831;  /* darkest gray */
+  color: #DFD0B8;             /* light text */</string>
   </property>
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
@@ -21,6 +25,19 @@
      <width>241</width>
      <height>32</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+  background-color: #393E46;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+}
+QPushButton:hover {
+  background-color: #948979;
+}
+</string>
    </property>
    <property name="orientation">
     <enum>Qt::Orientation::Horizontal</enum>
@@ -34,7 +51,7 @@
     <rect>
      <x>20</x>
      <y>20</y>
-     <width>261</width>
+     <width>271</width>
      <height>111</height>
     </rect>
    </property>
@@ -59,9 +76,22 @@
      <rect>
       <x>160</x>
       <y>60</y>
-      <width>75</width>
+      <width>91</width>
       <height>24</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+  background-color: #393E46;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+}
+QPushButton:hover {
+  background-color: #948979;
+}
+</string>
     </property>
     <property name="text">
      <string>Select Image</string>
@@ -70,7 +100,7 @@
    <widget class="QLabel" name="filePathLabel">
     <property name="geometry">
      <rect>
-      <x>160</x>
+      <x>170</x>
       <y>90</y>
       <width>81</width>
       <height>16</height>
@@ -85,9 +115,22 @@
      <rect>
       <x>160</x>
       <y>30</y>
-      <width>75</width>
+      <width>91</width>
       <height>23</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+  background-color: #393E46;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+}
+QPushButton:hover {
+  background-color: #948979;
+}
+</string>
     </property>
     <property name="text">
      <string>Color</string>
