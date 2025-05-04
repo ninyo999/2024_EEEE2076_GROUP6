@@ -97,7 +97,6 @@ $(document).ready(function(){initNavTree('classVRRenderThread.html',''); initRes
 <div class="header">
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
-<a href="#pub-slots">Public Slots</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
@@ -105,6 +104,11 @@ $(document).ready(function(){initNavTree('classVRRenderThread.html',''); initRes
   <div class="headertitle"><div class="title">VRRenderThread Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>A thread for managing VR rendering using VTK and OpenVR.  
+ <a href="classVRRenderThread.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="vrrenderthread_8h_source.html">vrrenderthread.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for VRRenderThread:</div>
 <div class="dyncontent">
@@ -115,47 +119,53 @@ Inheritance diagram for VRRenderThread:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:af5393c7e3267e22c69da6e0617296e3c" id="r_af5393c7e3267e22c69da6e0617296e3c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <br />
-&#160;&#160;<b>END_RENDER</b>
-, <b>ROTATE_X</b>
-, <b>ROTATE_Y</b>
-, <b>ROTATE_Z</b>
+&#160;&#160;<a class="el" href="classVRRenderThread.html#af5393c7e3267e22c69da6e0617296e3ca238b3c5fb3b7cb60cc688e20a00acd6e">END_RENDER</a>
+, <a class="el" href="classVRRenderThread.html#af5393c7e3267e22c69da6e0617296e3cab048351910e2bb77bb0c882bea0a2511">ROTATE_X</a>
+, <a class="el" href="classVRRenderThread.html#af5393c7e3267e22c69da6e0617296e3ca77d4292ea7b37cf3ef81d8c01d3459d6">ROTATE_Y</a>
+, <a class="el" href="classVRRenderThread.html#af5393c7e3267e22c69da6e0617296e3ca6156cf91874cc147ccd438696148a181">ROTATE_Z</a>
 , <br />
-&#160;&#160;<b>SET_LIGHT_INTENSITY</b>
-, <b>LOAD_SKYBOX</b>
+&#160;&#160;<a class="el" href="classVRRenderThread.html#af5393c7e3267e22c69da6e0617296e3cafd2bebfb274407d7cac253a642001e9f">SET_LIGHT_INTENSITY</a>
+, <a class="el" href="classVRRenderThread.html#af5393c7e3267e22c69da6e0617296e3cacf57bbbff6e3f2c543ee4165c97a524b">LOAD_SKYBOX</a>
 <br />
  }</td></tr>
+<tr class="memdesc:af5393c7e3267e22c69da6e0617296e3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rendering and control commands that can be issued to the VR thread.  <a href="classVRRenderThread.html#af5393c7e3267e22c69da6e0617296e3c">More...</a><br /></td></tr>
 <tr class="separator:af5393c7e3267e22c69da6e0617296e3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-slots" name="pub-slots"></a>
-Public Slots</h2></td></tr>
-<tr class="memitem:ae1679fed26b44e9fc1bb4ba9d93b56c3" id="r_ae1679fed26b44e9fc1bb4ba9d93b56c3"><td class="memItemLeft" align="right" valign="top"><a id="ae1679fed26b44e9fc1bb4ba9d93b56c3" name="ae1679fed26b44e9fc1bb4ba9d93b56c3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setVRBackgroundColor</b> (const QColor &amp;color)</td></tr>
-<tr class="separator:ae1679fed26b44e9fc1bb4ba9d93b56c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a35976e55f6655840aa217aa8a066f196" id="r_a35976e55f6655840aa217aa8a066f196"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVRRenderThread.html#a35976e55f6655840aa217aa8a066f196">VRRenderThread</a> (QObject *parent=nullptr)</td></tr>
+<tr class="memdesc:a35976e55f6655840aa217aa8a066f196"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <a class="el" href="classVRRenderThread.html" title="A thread for managing VR rendering using VTK and OpenVR.">VRRenderThread</a>.  <br /></td></tr>
 <tr class="separator:a35976e55f6655840aa217aa8a066f196"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2fa57b06d1deb3cacb9bf2c142618b49" id="r_a2fa57b06d1deb3cacb9bf2c142618b49"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVRRenderThread.html#a2fa57b06d1deb3cacb9bf2c142618b49">~VRRenderThread</a> () override</td></tr>
+<tr class="memdesc:a2fa57b06d1deb3cacb9bf2c142618b49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for <a class="el" href="classVRRenderThread.html" title="A thread for managing VR rendering using VTK and OpenVR.">VRRenderThread</a>.  <br /></td></tr>
 <tr class="separator:a2fa57b06d1deb3cacb9bf2c142618b49"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a17bb943e3b852339398cfbb7cb12cf13" id="r_a17bb943e3b852339398cfbb7cb12cf13"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVRRenderThread.html#a17bb943e3b852339398cfbb7cb12cf13">addActorOffline</a> (vtkActor *actor)</td></tr>
+<tr class="memdesc:a17bb943e3b852339398cfbb7cb12cf13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds an actor to the VR scene (before the thread starts).  <br /></td></tr>
 <tr class="separator:a17bb943e3b852339398cfbb7cb12cf13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abbc905472309a2da473241a596e43813" id="r_abbc905472309a2da473241a596e43813"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVRRenderThread.html#abbc905472309a2da473241a596e43813">issueCommand</a> (int cmd, double value)</td></tr>
+<tr class="memdesc:abbc905472309a2da473241a596e43813"><td class="mdescLeft">&#160;</td><td class="mdescRight">Issues a command to the VR renderer.  <br /></td></tr>
 <tr class="separator:abbc905472309a2da473241a596e43813"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e7125795136410a3fd29129c702e47b" id="r_a4e7125795136410a3fd29129c702e47b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVRRenderThread.html#a4e7125795136410a3fd29129c702e47b">loadSkybox</a> (const std::vector&lt; std::string &gt; &amp;faceFilenames)</td></tr>
+<tr class="memdesc:a4e7125795136410a3fd29129c702e47b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a skybox cubemap for the VR scene.  <br /></td></tr>
 <tr class="separator:a4e7125795136410a3fd29129c702e47b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a887ba74b8a5b02f927e4564049b85ffb" id="r_a887ba74b8a5b02f927e4564049b85ffb"><td class="memItemLeft" align="right" valign="top">enum VRRenderThread:: { ... } &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVRRenderThread.html#a887ba74b8a5b02f927e4564049b85ffb">Command</a></td></tr>
+<tr class="memitem:a887ba74b8a5b02f927e4564049b85ffb" id="r_a887ba74b8a5b02f927e4564049b85ffb"><td class="memItemLeft" align="right" valign="top"><a id="a887ba74b8a5b02f927e4564049b85ffb" name="a887ba74b8a5b02f927e4564049b85ffb"></a>
+enum VRRenderThread:: { ... } &#160;</td><td class="memItemRight" valign="bottom"><b>Command</b></td></tr>
+<tr class="memdesc:a887ba74b8a5b02f927e4564049b85ffb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rendering and control commands that can be issued to the VR thread. <br /></td></tr>
 <tr class="separator:a887ba74b8a5b02f927e4564049b85ffb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:af5bbbaf8625fc42278476a43bf018661" id="r_af5bbbaf8625fc42278476a43bf018661"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVRRenderThread.html#af5bbbaf8625fc42278476a43bf018661">run</a> () override</td></tr>
+<tr class="memdesc:af5bbbaf8625fc42278476a43bf018661"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main execution function for the thread.  <br /></td></tr>
 <tr class="separator:af5bbbaf8625fc42278476a43bf018661"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A thread for managing VR rendering using VTK and OpenVR. </p>
+<p>This class creates and manages a separate thread for VR rendering. It supports adding actors, issuing rendering commands (e.g., rotation, lighting), and setting a skybox or background color. </p>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="af5393c7e3267e22c69da6e0617296e3c" name="af5393c7e3267e22c69da6e0617296e3c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af5393c7e3267e22c69da6e0617296e3c">&#9670;&#160;</a></span>anonymous enum</h2>
 
@@ -167,7 +177,22 @@ Protected Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>List of command names </p>
+
+<p>Rendering and control commands that can be issued to the VR thread. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="af5393c7e3267e22c69da6e0617296e3ca238b3c5fb3b7cb60cc688e20a00acd6e" name="af5393c7e3267e22c69da6e0617296e3ca238b3c5fb3b7cb60cc688e20a00acd6e"></a>END_RENDER&#160;</td><td class="fielddoc"><p>Stops the VR rendering thread </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af5393c7e3267e22c69da6e0617296e3cab048351910e2bb77bb0c882bea0a2511" name="af5393c7e3267e22c69da6e0617296e3cab048351910e2bb77bb0c882bea0a2511"></a>ROTATE_X&#160;</td><td class="fielddoc"><p>Rotate the scene along the X-axis </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af5393c7e3267e22c69da6e0617296e3ca77d4292ea7b37cf3ef81d8c01d3459d6" name="af5393c7e3267e22c69da6e0617296e3ca77d4292ea7b37cf3ef81d8c01d3459d6"></a>ROTATE_Y&#160;</td><td class="fielddoc"><p>Rotate the scene along the Y-axis </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af5393c7e3267e22c69da6e0617296e3ca6156cf91874cc147ccd438696148a181" name="af5393c7e3267e22c69da6e0617296e3ca6156cf91874cc147ccd438696148a181"></a>ROTATE_Z&#160;</td><td class="fielddoc"><p>Rotate the scene along the Z-axis </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af5393c7e3267e22c69da6e0617296e3cafd2bebfb274407d7cac253a642001e9f" name="af5393c7e3267e22c69da6e0617296e3cafd2bebfb274407d7cac253a642001e9f"></a>SET_LIGHT_INTENSITY&#160;</td><td class="fielddoc"><p>Adjust the lighting intensity </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af5393c7e3267e22c69da6e0617296e3cacf57bbbff6e3f2c543ee4165c97a524b" name="af5393c7e3267e22c69da6e0617296e3cacf57bbbff6e3f2c543ee4165c97a524b"></a>LOAD_SKYBOX&#160;</td><td class="fielddoc"><p>Load a skybox texture </p>
+</td></tr>
+</table>
 
 </div>
 </div>
@@ -187,7 +212,16 @@ Protected Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Constructor </p>
+
+<p>Constructs the <a class="el" href="classVRRenderThread.html" title="A thread for managing VR rendering using VTK and OpenVR.">VRRenderThread</a>. </p>
+<p>Constructor for <a class="el" href="classVRRenderThread.html" title="A thread for managing VR rendering using VTK and OpenVR.">VRRenderThread</a>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent</td><td>Parent QObject.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Initializes rotation values and actor list. This thread will later be launched by the GUI thread (<a class="el" href="classMainWindow.html" title="The main application window handling user interaction and 3D rendering.">MainWindow</a>) using <code>start()</code>. </p>
 
 </div>
 </div>
@@ -213,7 +247,9 @@ Protected Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Destructor </p>
+
+<p>Destructor for <a class="el" href="classVRRenderThread.html" title="A thread for managing VR rendering using VTK and OpenVR.">VRRenderThread</a>. </p>
+<p>Safely stops the thread and deallocates all VTK objects to avoid memory leaks. </p>
 
 </div>
 </div>
@@ -233,7 +269,16 @@ Protected Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This allows actors to be added to the VR renderer BEFORE the VR interactor has been started </p>
+
+<p>Adds an actor to the VR scene (before the thread starts). </p>
+<p>Adds an actor to the VR scene before the thread starts.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">actor</td><td>The actor to add.</td></tr>
+    <tr><td class="paramname">actor</td><td>The VTK actor to add. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -262,7 +307,18 @@ Protected Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This allows commands to be issued to the VR thread in a thread-safe way </p>
+
+<p>Issues a command to the VR renderer. </p>
+<p>Issues a control command to the VR thread.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cmd</td><td>The command type. </td></tr>
+    <tr><td class="paramname">value</td><td>Associated value (e.g., rotation angle or light intensity).</td></tr>
+    <tr><td class="paramname">cmd</td><td>The command type (e.g. rotate, end render). </td></tr>
+    <tr><td class="paramname">value</td><td>Associated value (e.g. rotation speed). </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -281,7 +337,14 @@ Protected Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Adds a skybox to the VR renderer </p>
+
+<p>Loads a skybox cubemap for the VR scene. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">faceFilenames</td><td>A list of 6 image paths for the cubemap. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -307,23 +370,10 @@ Protected Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>This is a re-implementation of a QThread function </p>
 
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a887ba74b8a5b02f927e4564049b85ffb" name="a887ba74b8a5b02f927e4564049b85ffb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a887ba74b8a5b02f927e4564049b85ffb">&#9670;&#160;</a></span>[]</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum  { ... }  VRRenderThread::Command</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>List of command names </p>
+<p>Main execution function for the thread. </p>
+<p>Main function for the VR thread. Handles rendering and animation.</p>
+<p>Sets up the VR scene, render window, and interactor, and enters a render loop that performs incremental rotation and responds to VR headset interactions. </p>
 
 </div>
 </div>

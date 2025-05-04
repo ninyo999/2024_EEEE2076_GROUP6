@@ -105,10 +105,16 @@ $(document).ready(function(){initNavTree('classModelPart.html',''); initResizabl
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ab54e8a35913c7cdaeadd20fc76ed6ac1" id="r_ab54e8a35913c7cdaeadd20fc76ed6ac1"><td class="memItemLeft" align="right" valign="top"><a id="ab54e8a35913c7cdaeadd20fc76ed6ac1" name="ab54e8a35913c7cdaeadd20fc76ed6ac1"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ModelPart</b> (const QList&lt; QVariant &gt; &amp;data, <a class="el" href="classModelPart.html">ModelPart</a> *parent=nullptr)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>ModelPart</b> (const QList&lt; QVariant &gt; &amp;<a class="el" href="classModelPart.html#a92fa5d175c7dc8fd785c68490b26faaf">data</a>, <a class="el" href="classModelPart.html">ModelPart</a> *parent=nullptr)</td></tr>
+<tr class="memdesc:ab54e8a35913c7cdaeadd20fc76ed6ac1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classModelPart.html">ModelPart</a> with initial data and optional parent. Initializes default color, visibility, and filter states. <br /></td></tr>
 <tr class="separator:ab54e8a35913c7cdaeadd20fc76ed6ac1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b3b00630e9866e3e8fd648d28b7f016" id="r_a0b3b00630e9866e3e8fd648d28b7f016"><td class="memItemLeft" align="right" valign="top"><a id="a0b3b00630e9866e3e8fd648d28b7f016" name="a0b3b00630e9866e3e8fd648d28b7f016"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>~ModelPart</b> ()</td></tr>
+<tr class="memdesc:a0b3b00630e9866e3e8fd648d28b7f016"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor: deletes all child parts. <br /></td></tr>
+<tr class="separator:a0b3b00630e9866e3e8fd648d28b7f016"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a52074db110367665c3e262919e172c98" id="r_a52074db110367665c3e262919e172c98"><td class="memItemLeft" align="right" valign="top"><a id="a52074db110367665c3e262919e172c98" name="a52074db110367665c3e262919e172c98"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>appendChild</b> (<a class="el" href="classModelPart.html">ModelPart</a> *item)</td></tr>
+<tr class="memdesc:a52074db110367665c3e262919e172c98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a child part to this part. <br /></td></tr>
 <tr class="separator:a52074db110367665c3e262919e172c98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af32381b69415f0aa6bdfd84435f842cc" id="r_af32381b69415f0aa6bdfd84435f842cc"><td class="memItemLeft" align="right" valign="top"><a id="af32381b69415f0aa6bdfd84435f842cc" name="af32381b69415f0aa6bdfd84435f842cc"></a>
 <a class="el" href="classModelPart.html">ModelPart</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>child</b> (int row)</td></tr>
@@ -121,6 +127,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>columnCount</b> () con
 <tr class="separator:a94623f4e95be3c462297c1abc7b6f3c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a92fa5d175c7dc8fd785c68490b26faaf" id="r_a92fa5d175c7dc8fd785c68490b26faaf"><td class="memItemLeft" align="right" valign="top"><a id="a92fa5d175c7dc8fd785c68490b26faaf" name="a92fa5d175c7dc8fd785c68490b26faaf"></a>
 QVariant&#160;</td><td class="memItemRight" valign="bottom"><b>data</b> (int column, int role=Qt::DisplayRole) const</td></tr>
+<tr class="memdesc:a92fa5d175c7dc8fd785c68490b26faaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns data based on the column and role (display, background, etc.). <br /></td></tr>
 <tr class="separator:a92fa5d175c7dc8fd785c68490b26faaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3232893d070ddcec42631bf5b043add8" id="r_a3232893d070ddcec42631bf5b043add8"><td class="memItemLeft" align="right" valign="top"><a id="a3232893d070ddcec42631bf5b043add8" name="a3232893d070ddcec42631bf5b043add8"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>set</b> (int column, const QVariant &amp;value)</td></tr>
@@ -133,6 +140,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>row</b> () const</td><
 <tr class="separator:a05bc0dd06a3658d9a2c46fa717dec910"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab8ea6f5bbfb79882c22061d1446829aa" id="r_ab8ea6f5bbfb79882c22061d1446829aa"><td class="memItemLeft" align="right" valign="top"><a id="ab8ea6f5bbfb79882c22061d1446829aa" name="ab8ea6f5bbfb79882c22061d1446829aa"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setColor</b> (const QColor &amp;color)</td></tr>
+<tr class="memdesc:ab8ea6f5bbfb79882c22061d1446829aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the part's color and applies it to the actor. <br /></td></tr>
 <tr class="separator:ab8ea6f5bbfb79882c22061d1446829aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa974125427ff13c6d84417aa98db4115" id="r_aa974125427ff13c6d84417aa98db4115"><td class="memItemLeft" align="right" valign="top"><a id="aa974125427ff13c6d84417aa98db4115" name="aa974125427ff13c6d84417aa98db4115"></a>
 unsigned char&#160;</td><td class="memItemRight" valign="bottom"><b>getColourR</b> () const</td></tr>
@@ -157,27 +165,30 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setName</b> (const QS
 <tr class="separator:a2ce11d94c34c3570a15867fa08bb6be2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d004c61b9f9cb0da895956a4c22b97b" id="r_a8d004c61b9f9cb0da895956a4c22b97b"><td class="memItemLeft" align="right" valign="top"><a id="a8d004c61b9f9cb0da895956a4c22b97b" name="a8d004c61b9f9cb0da895956a4c22b97b"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>loadSTL</b> (QString fileName)</td></tr>
+<tr class="memdesc:a8d004c61b9f9cb0da895956a4c22b97b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads an STL file into this part and sets up its VTK actor. <br /></td></tr>
 <tr class="separator:a8d004c61b9f9cb0da895956a4c22b97b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60f905f171e3554a9500db10d46cf20d" id="r_a60f905f171e3554a9500db10d46cf20d"><td class="memItemLeft" align="right" valign="top"><a id="a60f905f171e3554a9500db10d46cf20d" name="a60f905f171e3554a9500db10d46cf20d"></a>
 vtkSmartPointer&lt; vtkActor &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getActor</b> () const</td></tr>
 <tr class="separator:a60f905f171e3554a9500db10d46cf20d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a54c30a6cb33f9f874113168c71446dfb" id="r_a54c30a6cb33f9f874113168c71446dfb"><td class="memItemLeft" align="right" valign="top"><a id="a54c30a6cb33f9f874113168c71446dfb" name="a54c30a6cb33f9f874113168c71446dfb"></a>
 vtkSmartPointer&lt; vtkActor &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getNewActor</b> () const</td></tr>
+<tr class="memdesc:a54c30a6cb33f9f874113168c71446dfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new actor clone for use in VR rendering. Copies properties, orientation, and color. <br /></td></tr>
 <tr class="separator:a54c30a6cb33f9f874113168c71446dfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83709e065b2dac2fec9ef4a777a22608" id="r_a83709e065b2dac2fec9ef4a777a22608"><td class="memItemLeft" align="right" valign="top"><a id="a83709e065b2dac2fec9ef4a777a22608" name="a83709e065b2dac2fec9ef4a777a22608"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setRenderer</b> (vtkRenderer *renderer)</td></tr>
 <tr class="separator:a83709e065b2dac2fec9ef4a777a22608"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a52b26b7adbeabaadce95ddf9df608937" id="r_a52b26b7adbeabaadce95ddf9df608937"><td class="memItemLeft" align="right" valign="top"><a id="a52b26b7adbeabaadce95ddf9df608937" name="a52b26b7adbeabaadce95ddf9df608937"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>removeChild</b> (<a class="el" href="classModelPart.html">ModelPart</a> *child)</td></tr>
+<tr class="memdesc:a52b26b7adbeabaadce95ddf9df608937"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a child and deletes its resources. <br /></td></tr>
 <tr class="separator:a52b26b7adbeabaadce95ddf9df608937"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a0879ffab6883599dd81ea91b263e97" id="r_a8a0879ffab6883599dd81ea91b263e97"><td class="memItemLeft" align="right" valign="top"><a id="a8a0879ffab6883599dd81ea91b263e97" name="a8a0879ffab6883599dd81ea91b263e97"></a>
 vtkSmartPointer&lt; vtkPolyData &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getPolyData</b> () const</td></tr>
 <tr class="separator:a8a0879ffab6883599dd81ea91b263e97"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d11e062eb2b166574c458e992ea6009" id="r_a1d11e062eb2b166574c458e992ea6009"><td class="memItemLeft" align="right" valign="top"><a id="a1d11e062eb2b166574c458e992ea6009" name="a1d11e062eb2b166574c458e992ea6009"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>applyClipFilter</b> (bool enable, double origin[3], double normal[3])</td></tr>
+<tr class="memitem:a1d11e062eb2b166574c458e992ea6009" id="r_a1d11e062eb2b166574c458e992ea6009"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModelPart.html#a1d11e062eb2b166574c458e992ea6009">applyClipFilter</a> (bool enable, double origin[3], double normal[3])</td></tr>
+<tr class="memdesc:a1d11e062eb2b166574c458e992ea6009"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a clipping filter to this part.  <br /></td></tr>
 <tr class="separator:a1d11e062eb2b166574c458e992ea6009"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c5db035d08a01237db646c1cc3814be" id="r_a3c5db035d08a01237db646c1cc3814be"><td class="memItemLeft" align="right" valign="top"><a id="a3c5db035d08a01237db646c1cc3814be" name="a3c5db035d08a01237db646c1cc3814be"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>applyShrinkFilter</b> (bool enable, double factor)</td></tr>
+<tr class="memitem:a3c5db035d08a01237db646c1cc3814be" id="r_a3c5db035d08a01237db646c1cc3814be"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModelPart.html#a3c5db035d08a01237db646c1cc3814be">applyShrinkFilter</a> (bool enable, double factor)</td></tr>
+<tr class="memdesc:a3c5db035d08a01237db646c1cc3814be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a shrink filter to this part.  <br /></td></tr>
 <tr class="separator:a3c5db035d08a01237db646c1cc3814be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab68c5a439b12791d22094c2b3bbb3650" id="r_ab68c5a439b12791d22094c2b3bbb3650"><td class="memItemLeft" align="right" valign="top"><a id="ab68c5a439b12791d22094c2b3bbb3650" name="ab68c5a439b12791d22094c2b3bbb3650"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>isClipFilterEnabled</b> () const</td></tr>
@@ -195,6 +206,88 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>storeOriginalData</b>
 vtkSmartPointer&lt; vtkPolyData &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getOriginalPolyData</b> () const</td></tr>
 <tr class="separator:a4de48af1e860e197306566c07aa7c24b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a1d11e062eb2b166574c458e992ea6009" name="a1d11e062eb2b166574c458e992ea6009"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d11e062eb2b166574c458e992ea6009">&#9670;&#160;</a></span>applyClipFilter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ModelPart::applyClipFilter </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>enable</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>origin</em>[3], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>normal</em>[3]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Applies a clipping filter to this part. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">enable</td><td>Whether to enable the filter. </td></tr>
+    <tr><td class="paramname">origin</td><td>Origin point of the clipping plane. </td></tr>
+    <tr><td class="paramname">normal</td><td>Normal vector of the clipping plane. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3c5db035d08a01237db646c1cc3814be" name="a3c5db035d08a01237db646c1cc3814be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c5db035d08a01237db646c1cc3814be">&#9670;&#160;</a></span>applyShrinkFilter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ModelPart::applyShrinkFilter </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>enable</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>factor</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Applies a shrink filter to this part. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">enable</td><td>Whether to enable shrinking. </td></tr>
+    <tr><td class="paramname">factor</td><td>Shrink factor to apply. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="ModelPart_8h_source.html">ModelPart.h</a></li>
 <li><b>ModelPart.cpp</b></li>

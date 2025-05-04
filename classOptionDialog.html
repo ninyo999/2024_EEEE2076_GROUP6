@@ -102,6 +102,11 @@ $(document).ready(function(){initNavTree('classOptionDialog.html',''); initResiz
   <div class="headertitle"><div class="title">OptionDialog Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>A dialog to edit properties of a 3D model part.  
+ <a href="classOptionDialog.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="optiondialog_8h_source.html">optiondialog.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for OptionDialog:</div>
 <div class="dyncontent">
@@ -113,26 +118,196 @@ Inheritance diagram for OptionDialog:</div>
 Signals</h2></td></tr>
 <tr class="memitem:a97409e9318d3ac644b5c6360c5628c13" id="r_a97409e9318d3ac644b5c6360c5628c13"><td class="memItemLeft" align="right" valign="top"><a id="a97409e9318d3ac644b5c6360c5628c13" name="a97409e9318d3ac644b5c6360c5628c13"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>deleteRequested</b> ()</td></tr>
+<tr class="memdesc:a97409e9318d3ac644b5c6360c5628c13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Emitted when the user requests deletion of the part. <br /></td></tr>
 <tr class="separator:a97409e9318d3ac644b5c6360c5628c13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4540736a5c6e4468dad5165c7aefc8bc" id="r_a4540736a5c6e4468dad5165c7aefc8bc"><td class="memItemLeft" align="right" valign="top"><a id="a4540736a5c6e4468dad5165c7aefc8bc" name="a4540736a5c6e4468dad5165c7aefc8bc"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>OptionDialog</b> (QWidget *parent=nullptr)</td></tr>
+<tr class="memitem:a4540736a5c6e4468dad5165c7aefc8bc" id="r_a4540736a5c6e4468dad5165c7aefc8bc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOptionDialog.html#a4540736a5c6e4468dad5165c7aefc8bc">OptionDialog</a> (QWidget *parent=nullptr)</td></tr>
+<tr class="memdesc:a4540736a5c6e4468dad5165c7aefc8bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <a class="el" href="classOptionDialog.html" title="A dialog to edit properties of a 3D model part.">OptionDialog</a>.  <br /></td></tr>
 <tr class="separator:a4540736a5c6e4468dad5165c7aefc8bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3872fb65cac51a3914be3881437e470" id="r_ad3872fb65cac51a3914be3881437e470"><td class="memItemLeft" align="right" valign="top"><a id="ad3872fb65cac51a3914be3881437e470" name="ad3872fb65cac51a3914be3881437e470"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>getModelPartData</b> (QString &amp;name, QColor &amp;color, bool &amp;visible) const</td></tr>
+<tr class="memitem:a640a1faddda44f2567cf386de0085ec7" id="r_a640a1faddda44f2567cf386de0085ec7"><td class="memItemLeft" align="right" valign="top"><a id="a640a1faddda44f2567cf386de0085ec7" name="a640a1faddda44f2567cf386de0085ec7"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>~OptionDialog</b> ()</td></tr>
+<tr class="memdesc:a640a1faddda44f2567cf386de0085ec7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for <a class="el" href="classOptionDialog.html" title="A dialog to edit properties of a 3D model part.">OptionDialog</a>. <br /></td></tr>
+<tr class="separator:a640a1faddda44f2567cf386de0085ec7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3872fb65cac51a3914be3881437e470" id="r_ad3872fb65cac51a3914be3881437e470"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOptionDialog.html#ad3872fb65cac51a3914be3881437e470">getModelPartData</a> (QString &amp;name, QColor &amp;color, bool &amp;visible) const</td></tr>
+<tr class="memdesc:ad3872fb65cac51a3914be3881437e470"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves data entered in the dialog.  <br /></td></tr>
 <tr class="separator:ad3872fb65cac51a3914be3881437e470"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af64ae061949dd999340a6e0ea4782266" id="r_af64ae061949dd999340a6e0ea4782266"><td class="memItemLeft" align="right" valign="top"><a id="af64ae061949dd999340a6e0ea4782266" name="af64ae061949dd999340a6e0ea4782266"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setModelPart</b> (<a class="el" href="classModelPart.html">ModelPart</a> *part)</td></tr>
+<tr class="memitem:af64ae061949dd999340a6e0ea4782266" id="r_af64ae061949dd999340a6e0ea4782266"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOptionDialog.html#af64ae061949dd999340a6e0ea4782266">setModelPart</a> (<a class="el" href="classModelPart.html">ModelPart</a> *part)</td></tr>
+<tr class="memdesc:af64ae061949dd999340a6e0ea4782266"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the <a class="el" href="classModelPart.html">ModelPart</a> whose data will be shown in the dialog.  <br /></td></tr>
 <tr class="separator:af64ae061949dd999340a6e0ea4782266"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5cf08394f1495ffa610d83a2a3047d64" id="r_a5cf08394f1495ffa610d83a2a3047d64"><td class="memItemLeft" align="right" valign="top"><a id="a5cf08394f1495ffa610d83a2a3047d64" name="a5cf08394f1495ffa610d83a2a3047d64"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>accept</b> () override</td></tr>
+<tr class="memitem:a5cf08394f1495ffa610d83a2a3047d64" id="r_a5cf08394f1495ffa610d83a2a3047d64"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOptionDialog.html#a5cf08394f1495ffa610d83a2a3047d64">accept</a> () override</td></tr>
+<tr class="memdesc:a5cf08394f1495ffa610d83a2a3047d64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles the accept/OK button press.  <br /></td></tr>
 <tr class="separator:a5cf08394f1495ffa610d83a2a3047d64"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a795349e337548c3ddb4fd0d8ccde0db7" id="r_a795349e337548c3ddb4fd0d8ccde0db7"><td class="memItemLeft" align="right" valign="top"><a id="a795349e337548c3ddb4fd0d8ccde0db7" name="a795349e337548c3ddb4fd0d8ccde0db7"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>updateColorButton</b> ()</td></tr>
+<tr class="memitem:a795349e337548c3ddb4fd0d8ccde0db7" id="r_a795349e337548c3ddb4fd0d8ccde0db7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOptionDialog.html#a795349e337548c3ddb4fd0d8ccde0db7">updateColorButton</a> ()</td></tr>
+<tr class="memdesc:a795349e337548c3ddb4fd0d8ccde0db7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the color button appearance.  <br /></td></tr>
 <tr class="separator:a795349e337548c3ddb4fd0d8ccde0db7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A dialog to edit properties of a 3D model part. </p>
+<p>This class allows users to edit the name, color, and visibility of a <a class="el" href="classModelPart.html">ModelPart</a>. It also provides options to delete the part. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a4540736a5c6e4468dad5165c7aefc8bc" name="a4540736a5c6e4468dad5165c7aefc8bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4540736a5c6e4468dad5165c7aefc8bc">&#9670;&#160;</a></span>OptionDialog()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">OptionDialog::OptionDialog </td>
+          <td>(</td>
+          <td class="paramtype">QWidget *&#160;</td>
+          <td class="paramname"><em>parent</em> = <code>nullptr</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructs the <a class="el" href="classOptionDialog.html" title="A dialog to edit properties of a 3D model part.">OptionDialog</a>. </p>
+<p>Constructs the <a class="el" href="classOptionDialog.html" title="A dialog to edit properties of a 3D model part.">OptionDialog</a> and connects UI signals.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent</td><td>Pointer to the parent widget.</td></tr>
+    <tr><td class="paramname">parent</td><td>The parent widget. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a5cf08394f1495ffa610d83a2a3047d64" name="a5cf08394f1495ffa610d83a2a3047d64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cf08394f1495ffa610d83a2a3047d64">&#9670;&#160;</a></span>accept()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void OptionDialog::accept </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Handles the accept/OK button press. </p>
+<p>Accepts and applies changes to the selected <a class="el" href="classModelPart.html">ModelPart</a>. </p>
+
+</div>
+</div>
+<a id="ad3872fb65cac51a3914be3881437e470" name="ad3872fb65cac51a3914be3881437e470"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3872fb65cac51a3914be3881437e470">&#9670;&#160;</a></span>getModelPartData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void OptionDialog::getModelPartData </td>
+          <td>(</td>
+          <td class="paramtype">QString &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QColor &amp;&#160;</td>
+          <td class="paramname"><em>color</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool &amp;&#160;</td>
+          <td class="paramname"><em>visible</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retrieves data entered in the dialog. </p>
+<p>Retrieves the model part data as entered in the dialog.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The updated name of the model part. </td></tr>
+    <tr><td class="paramname">color</td><td>The selected color. </td></tr>
+    <tr><td class="paramname">visible</td><td>Visibility status.</td></tr>
+    <tr><td class="paramname">name</td><td>Output name. </td></tr>
+    <tr><td class="paramname">color</td><td>Output color. </td></tr>
+    <tr><td class="paramname">visible</td><td>Output visibility flag. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af64ae061949dd999340a6e0ea4782266" name="af64ae061949dd999340a6e0ea4782266"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af64ae061949dd999340a6e0ea4782266">&#9670;&#160;</a></span>setModelPart()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void OptionDialog::setModelPart </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classModelPart.html">ModelPart</a> *&#160;</td>
+          <td class="paramname"><em>part</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the <a class="el" href="classModelPart.html">ModelPart</a> whose data will be shown in the dialog. </p>
+<p>Sets the model part to edit in the dialog and populates fields.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">part</td><td>Pointer to the <a class="el" href="classModelPart.html">ModelPart</a>.</td></tr>
+    <tr><td class="paramname">part</td><td>Pointer to the <a class="el" href="classModelPart.html">ModelPart</a> to configure. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a795349e337548c3ddb4fd0d8ccde0db7" name="a795349e337548c3ddb4fd0d8ccde0db7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a795349e337548c3ddb4fd0d8ccde0db7">&#9670;&#160;</a></span>updateColorButton()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void OptionDialog::updateColorButton </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Updates the color button appearance. </p>
+<p>Updates the color button's background to match currentColor. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="optiondialog_8h_source.html">optiondialog.h</a></li>
 <li><b>optiondialog.cpp</b></li>
