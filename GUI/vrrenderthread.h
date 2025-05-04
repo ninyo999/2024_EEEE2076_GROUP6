@@ -76,15 +76,13 @@ public:
     void loadSkybox(const std::vector<std::string>& faceFilenames);
 
 public slots:
-<<<<<<< HEAD
+
     /**
      * @brief Sets the VR scene background color.
      * @param color The background color.
      */
     void setVRBackgroundColor(const QColor& color);
-=======
-	void setVRBackgroundColor(const QColor& color);
->>>>>>> aa1abbf0f105ed0cac03f9bf88362994a1e75d43
+
 
 protected:
     /**

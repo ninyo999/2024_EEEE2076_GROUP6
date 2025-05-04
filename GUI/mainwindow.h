@@ -120,7 +120,7 @@ public slots:
      * @brief Starts VR rendering.
      */
     void startVR();
-<<<<<<< HEAD
+
 
     /**
      * @brief Stops VR rendering.
@@ -131,12 +131,6 @@ public slots:
      * @brief Loads a skybox texture into the scene.
      */
     void onLoadSkyboxClicked();
-=======
-    void stopVR();
-    void onLoadSkyboxClicked();  // Skybox loading function
->>>>>>> aa1abbf0f105ed0cac03f9bf88362994a1e75d43
-
-
 
 signals:
     /**
@@ -185,7 +179,6 @@ private slots:
      * @brief Updates the VR renderer to reflect current scene.
      */
     void updateVRRenderer();
-    void updateVRBackground(const QColor& color);
 
     /**
      * @brief Updates the VR background with a solid color.
@@ -233,12 +226,7 @@ private:
     QTimer* rotationTimer = nullptr;  /**< Timer for rotation updates */
     int rotationSpeed = 0;  /**< Current model rotation speed */
 
-<<<<<<< HEAD
     vtkSmartPointer<vtkSkybox> skybox;  /**< Skybox for the 3D scene */
 };
-=======
-    vtkSmartPointer<vtkSkybox> skybox;
->>>>>>> aa1abbf0f105ed0cac03f9bf88362994a1e75d43
 
-};
 #endif // MAINWINDOW_H
