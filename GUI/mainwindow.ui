@@ -31,6 +31,48 @@
         <property name="contextMenuPolicy">
          <enum>Qt::ContextMenuPolicy::ActionsContextMenu</enum>
         </property>
+        <property name="styleSheet">
+         <string notr="true">/* ─── QTreeView ─────────────────────────────────────────────────────────── */
+QTreeView {
+    background-color: #DFD0B8;          /* overall background */
+    color:#222831 ;                     /* text color */
+    border: 1px solid #393E46;          /* outer border */
+    show-decoration-selected: 1;        /* highlight full row */
+    alternate-background-color: #393E46;/* zebra stripe */
+}
+
+/* individual rows */
+QTreeView::item {
+    padding: 4px 8px;
+}
+
+/* hover feedback */
+QTreeView::item:hover {
+    background-color: #6f7379;
+    color: #DFD0B8;
+}
+
+/* selected row */
+QTreeView::item:selected {
+    background-color: #948979;          /* accent */
+    color: #222831;                     /* dark text for contrast */
+}
+
+/* ─── HEADER (if you’re showing columns) ───────────────────────────────── */
+QHeaderView::section {
+    background-color: #393E46;
+    color: #DFD0B8;
+    padding: 4px;
+    border: 1px solid #393E46;
+}
+
+/* pressed/sort indicator state */
+QHeaderView::section:pressed {
+    background-color: #948979;
+}
+
+</string>
+        </property>
        </widget>
       </item>
       <item>
