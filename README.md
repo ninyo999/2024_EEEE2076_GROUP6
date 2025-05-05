@@ -42,12 +42,6 @@ This folder contains PNG or SVG icons used in the Qt GUI interface.
 
 
 
-
-## Installation
-
-[Drive my car](https://) 
-
-
 ## Usage
 
 After building and running the application, you can:
