@@ -40,9 +40,6 @@ This project is a desktop app that lets you open and view 3D models (in STL form
 
 This folder contains PNG or SVG icons used in the Qt GUI interface.
 
-## vrbindings folder
-
-This folder contains the VR bindings and configuration files required for OpenVR (e.g. SteamVR) integration. These files help map controller inputs, define rendering behavior in VR, and ensure compatibility with supported VR hardware
 
 
 
