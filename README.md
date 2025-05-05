@@ -63,6 +63,11 @@ After building and running the application, you can:
 
 4. Change the background by selecting a solid color or loading a custom image.
 
-5. Adjust lighting and rotation speed using the sliders.
+5. Adjust lighting and drift animation using the sliders.
 
-6. Click “Start VR” to launch the scene in your VR headset (if connected and supported).
+6. Click “Start VR” to launch the scene in your VR headset and "Stop VR" to stop it.
+
+### Example of application
+
+![image](https://github.com/user-attachments/assets/25bf49d9-9d2f-4ed4-aaf6-b94dca1fbd95)
+
