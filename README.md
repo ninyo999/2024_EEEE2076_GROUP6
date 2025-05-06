@@ -12,7 +12,7 @@ This project is a desktop app that lets you open and view 3D models (in STL form
 
 * CMake 
 
-## GUI folder
+## VRCADSTUDIO2025 folder
 
 `mainwindow.*` |   Main window class — UI, rendering, event logic
  
@@ -61,7 +61,7 @@ After building and running the application, you can:
 
 6. Click “Start VR” to launch the scene in your VR headset and "Stop VR" to stop it.
 
-### Example of application
+## Example of application
 
 ![image](https://github.com/user-attachments/assets/25bf49d9-9d2f-4ed4-aaf6-b94dca1fbd95)
 
